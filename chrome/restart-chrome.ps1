@@ -28,7 +28,7 @@ if ($plist) {
     # except for following hack which is to directly modifying the user preferences (which is a json file).
     $file = "$($env:LocalAppData)\Google\Chrome\User Data\Default\Preferences"
     $backup = $file + '.bak'
-    if (!(Test-Path $backup)) { copy $file $backup } # only create backup when it doesn't exist, to avoid overwriting a good backup one second run
+    if (!(Test-Path $backup)) { copy $file $backup } # only create backup when it doesn't exist, to avoid overwriting a good backup on second run
 
     $j = ConvertFrom-Json (Get-Content $file | Out-String)
     # Output current data as FYI

@@ -10,9 +10,16 @@ param (
 	# Also search in modules that in PSModulePath and may not be imported yet.
 	[switch] $ListAvailable
 )
-
-Add-Type -Path "$PsScriptRoot\Fsharp.Core.dll"
-Add-Type -Path "$PsScriptRoot\psparsing.dll"
+echo Fsharp.Core, psparsing | % {
+    $name = $_
+    foreach($p in @($PSScriptRoot, "$PsScriptRoot\..\..\$name\current")) {
+        $fp = Join-Path $p "$name.dll"
+        if (Test-Path $fp) {
+            Add-Type -Path $fp
+            break
+        }
+    }
+}
 
 function Get-PsFunction
 {

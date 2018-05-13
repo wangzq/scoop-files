@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<settings>
+  <section _="0118143a-daaa-4614-9de4-034b028f791e" />
+  <section _="071cf92d-acfa-46a1-8eef-dfac1d01e644" />
+  <section _="0a9208ec-cfab-41c2-82c6-fcda44a8e684" />
+  <section _="102dcd2e-be0a-477c-b4d0-600c5ca28a6a" />
+  <section _="1ace15fd-d689-40dc-b1e7-6eec25b3116f" />
+  <section _="2e163d85-e4b5-419a-a525-010df2bea323" />
+  <section _="33608c69-6696-4721-8011-81ecccc80c64" />
+  <section _="33e1988b-8eff-4f4c-a064-fa99a7d0c64d">
+    <section _="MainWindowControlState">
+      <section _="Horizontal" horizontal="True">
+        <section _="Length" l="391" />
+        <section _="Length" l="6" />
+        <section _="Length" l="1.05*" />
+      </section>
+      <section _="Location" g="5495ee9f-1ef2-45f3-a320-22a89bfdf731" l="Left" />
+      <section _="Location" g="d799829f-cae3-4f8f-ad81-1732abc50636" l="Bottom" />
+      <section _="Location" g="8c95eb2e-25f4-4d2f-a00d-a303754990df" l="Bottom" />
+      <section _="Location" g="e5745d58-4dcb-4d92-b786-4e1635c86eed" l="Bottom" />
+      <section _="Location" g="a05af486-59a0-4a2f-ab61-fc25151426c3" l="Bottom" />
+      <section _="Location" g="90a45e97-727e-4f31-8692-06e19218d99a" l="Bottom" />
+      <section _="Location" g="8e359be0-c8cd-4ca7-b228-8c836219af85" l="Bottom" />
+      <section _="Location" g="5827d693-a5df-4d65-b1f8-acf249508a96" l="Bottom" />
+      <section _="Location" g="9d7d28f0-f031-4439-99bf-f7b747fa4b19" l="DefaultHorizontal" />
+      <section _="Location" g="82575354-ab18-408b-846b-aa585b7b2b4a" l="Bottom" />
+      <section _="Location" g="0e53b79d-ec30-44b6-86a3-dffce364eb4a" l="Bottom" />
+      <section _="Location" g="3c01719c-b6b5-4261-9cd4-3edce1032e5c" l="Bottom" />
+      <section _="ToolWindow" index="0" is-horizontal="False" location="Left">
+        <section _="Group" index="0">
+          <section _="Content" g="5495ee9f-1ef2-45f3-a320-22a89bfdf731" />
+        </section>
+        <section _="StackedContent" horizontal="True">
+          <section _="Length" l="0.95*" />
+        </section>
+      </section>
+      <section _="ToolWindow" index="-1" is-horizontal="False" location="Right">
+        <section _="StackedContent" horizontal="True" />
+      </section>
+      <section _="ToolWindow" index="-1" is-horizontal="False" location="Top">
+        <section _="StackedContent" horizontal="True" />
+      </section>
+      <section _="ToolWindow" index="0" is-horizontal="False" location="Bottom">
+        <section _="Group" index="0">
+          <section _="Content" g="d799829f-cae3-4f8f-ad81-1732abc50636" />
+          <section _="Content" g="a05af486-59a0-4a2f-ab61-fc25151426c3" />
+          <section _="Content" g="8e359be0-c8cd-4ca7-b228-8c836219af85" />
+          <section _="Content" g="5827d693-a5df-4d65-b1f8-acf249508a96" />
+        </section>
+        <section _="Group" index="5">
+          <section _="Content" g="8c95eb2e-25f4-4d2f-a00d-a303754990df" />
+          <section _="Content" g="3c01719c-b6b5-4261-9cd4-3edce1032e5c" />
+          <section _="Content" g="e5745d58-4dcb-4d92-b786-4e1635c86eed" />
+          <section _="Content" g="90a45e97-727e-4f31-8692-06e19218d99a" />
+          <section _="Content" g="82575354-ab18-408b-846b-aa585b7b2b4a" />
+          <section _="Content" g="0e53b79d-ec30-44b6-86a3-dffce364eb4a" />
+        </section>
+        <section _="StackedContent" horizontal="True">
+          <section _="Length" l="0.95*" />
+          <section _="Length" l="6" />
+          <section _="Length" l="1.05*" />
+        </section>
+      </section>
+      <section _="Vertical" horizontal="False">
+        <section _="Length" l="0.95*" />
+        <section _="Length" l="6" />
+        <section _="Length" l="301" />
+      </section>
+    </section>
+    <section _="SavedWindowState" Bounds="610,482,1300,730" IsFullScreen="False" WindowState="Maximized" />
+  </section>
+  <section _="34cf0af5-d265-4393-bc68-9b8c9b8ea622" ShowAllThemes="False" ThemeGuid="64efbb2c-0aca-467c-8389-9fa350376f3f" />
+  <section _="3643ce93-84d5-455a-9183-94b58bc80942" />
+  <section _="3e04abe0-fd5e-4938-b40c-f86aa0fa377d" />
+  <section _="4052ef89-2381-4cd0-b296-a5497c204b98">
+    <section _="Watch" Index="0">
+      <section _="Expression" Value="configSolutionFile" />
+    </section>
+  </section>
+  <section _="42cb1310-641d-4eb7-971d-16dc5cf9a40d" />
+  <section _="4d05c47d-3f6a-429e-9cb3-232e10d45468" />
+  <section _="53863c11-df95-43f2-8f86-5e9dfcce6893">
+    <section _="FileLists" name="(Default)">
+      <section _="FileList" name="(Default)" />
+    </section>
+    <section _="TabGroupWindow" index="-1" is-horizontal="False" name="Main">
+      <section _="StackedContent" horizontal="True" />
+    </section>
+  </section>
+  <section _="64414b81-ef07-4da1-9d21-1f625a6e0080" SelectedGuid="7b6e802a-b58c-4689-877e-3358fcdcefac" />
+  <section _="6745457f-254b-4b7b-90f1-f948f0721c3b" AnonymousMethods="True" AsyncAwait="True" DecompilationObject0="Methods" DecompilationObject1="Properties" DecompilationObject2="Events" DecompilationObject3="Fields" DecompilationObject4="NestedTypes" ExpressionTrees="True" ForceShowAllMembers="False" MemberAddPrivateModifier="True" OneCustomAttributePerLine="True" QueryExpressions="True" RemoveEmptyDefaultConstructors="True" ShowTokenAndRvaComments="False" ShowXmlDocumentation="True" SortCustomAttributes="False" SortMembers="False" SortSystemUsingStatementsFirst="True" TypeAddInternalModifier="True" UseDebugSymbols="True" UseSourceCodeOrder="True" YieldReturn="True" />
+  <section _="68377c1d-228a-4317-ab10-11796f6deb18" />
+  <section _="686c5cfb-ff63-4aa5-8c92-e08607ae5146" />
+  <section _="6a7e565d-dc09-4aae-a7c8-e86a835fcbfc" />
+  <section _="6aa691d6-c3b8-4823-87ec-dc2e9134cb3e" />
+  <section _="7280c4eb-1135-4f39-b6e0-57bd0a2454d6" />
+  <section _="7caef193-7f6a-4710-8e47-547a71d6fdbc" />
+  <section _="87c84585-355b-4bf2-b5ee-c61bc1975552" />
+  <section _="8a9e5743-f634-45ce-a841-e2275338dc28" />
+  <section _="91f1ed94-1bea-4853-9240-b542a7d022ca" />
+  <section _="a7c5956e-593b-4b04-a237-f837cf17e44e" />
+  <section _="b744ae6d-24e0-47a3-acf6-388eccb1c65a" />
+  <section _="ba10705f-f9a0-4cf6-b3a8-b0e4a76151a6">
+    <section _="Group" name="DocumentViewer">
+      <section _="ContentType" name="any">
+        <section _="Option" name="TextView/ZoomLevel" value="110" />
+        <section _="Option" name="ITextView/LineSeparators" value="False" />
+      </section>
+    </section>
+  </section>
+  <section _="d9809eb3-1605-4e05-a84f-6ee241faad6c" />
+  <section _="dd6752b1-5336-4601-a9b2-0879e18ae9f3" />
+  <section _="eaa1be38-7a55-44af-ad93-5b7ee2327edd" />
+  <section _="eb2d9511-93b9-4985-bb99-1758bf2a5ade" />
+  <section _="ef5c4f77-ac84-413b-93ab-4773f0013514" />
+  <section _="fbc6039c-8a7a-49dc-9c32-52c1b73de0a3" />
+</settings>

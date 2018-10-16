@@ -1,0 +1,2131 @@
+Status,Policy Path,Policy Name,Supported On,Registry Settings,Help Text,Reboot Required,Comments
+,Computer Configuration\Windows Settings\Account Policies\Password Policy,Enforce password history,"At least Windows XP SP2, Windows Server 2003",Password Policy security settings are not registry keys. ,"Enforce password history
+
+This security setting determines the number of unique new passwords that have to be associated with a user account before an old password can be reused. The value must be between 0 and 24 passwords.
+
+This policy enables administrators to enhance security by ensuring that old passwords are not reused continually.
+
+Default:
+
+24 on domain controllers.
+0 on stand-alone servers.
+
+Note: By default, member computers follow the configuration of their domain controllers.
+To maintain the effectiveness of the password history, do not allow passwords to be changed immediately after they were just changed by also enabling the Minimum password age security policy setting. For information about the minimum password age security policy setting, see Minimum password age.",No,
+,Computer Configuration\Windows Settings\Account Policies\Password Policy,Maximum password age,"At least Windows XP SP2, Windows Server 2003",Password Policy security settings are not registry keys. ,"Maximum password age
+
+This security setting determines the period of time (in days) that a password can be used before the system requires the user to change it. You can set passwords to expire after a number of days between 1 and 999, or you can specify that passwords never expire by setting the number of days to 0. If the maximum password age is between 1 and 999 days, the Minimum password age must be less than the maximum password age. If the maximum password age is set to 0, the minimum password age can be any value between 0 and 998 days.
+
+Note: It is a security best practice to have passwords expire every 30 to 90 days, depending on your environment. This way, an attacker has a limited amount of time in which to crack a user's password and have access to your network resources.
+
+Default: 42.",No,
+,Computer Configuration\Windows Settings\Account Policies\Password Policy,Minimum password age,"At least Windows XP SP2, Windows Server 2003",Password Policy security settings are not registry keys. ,"Minimum password age
+
+This security setting determines the period of time (in days) that a password must be used before the user can change it. You can set a value between 1 and 998 days, or you can allow changes immediately by setting the number of days to 0.
+
+The minimum password age must be less than the Maximum password age, unless the maximum password age is set to 0, indicating that passwords will never expire. If the maximum password age is set to 0, the minimum password age can be set to any value between 0 and 998.
+
+Configure the minimum password age to be more than 0 if you want Enforce password history to be effective. Without a minimum password age, users can cycle through passwords repeatedly until they get to an old favorite. The default setting does not follow this recommendation, so that an administrator can specify a password for a user and then require the user to change the administrator-defined password when the user logs on. If the password history is set to 0, the user does not have to choose a new password. For this reason, Enforce password history is set to 1 by default.
+
+Default:
+
+1 on domain controllers.
+0 on stand-alone servers.
+
+Note: By default, member computers follow the configuration of their domain controllers.",No,
+,Computer Configuration\Windows Settings\Account Policies\Password Policy,Minimum password length,"At least Windows XP SP2, Windows Server 2003",Password Policy security settings are not registry keys. ,"Minimum password length
+
+This security setting determines the least number of characters that a password for a user account may contain. You can set a value of between 1 and 14 characters, or you can establish that no password is required by setting the number of characters to 0.
+
+Default:
+
+7 on domain controllers.
+0 on stand-alone servers.
+
+Note: By default, member computers follow the configuration of their domain controllers.",No,
+,Computer Configuration\Windows Settings\Account Policies\Password Policy,Password must meet complexity requirement,"At least Windows XP SP2, Windows Server 2003",Password Policy security settings are not registry keys. ,"Password must meet complexity requirements
+
+This security setting determines whether passwords must meet complexity requirements.
+
+If this policy is enabled, passwords must meet the following minimum requirements:
+
+Not contain the user's account name or parts of the user's full name that exceed two consecutive characters
+Be at least six characters in length
+Contain characters from three of the following four categories:
+English uppercase characters (A through Z)
+English lowercase characters (a through z)
+Base 10 digits (0 through 9)
+Non-alphabetic characters (for example, !, $, #, %)
+Complexity requirements are enforced when passwords are changed or created.
+
+
+
+Default:
+
+Enabled on domain controllers.
+Disabled on stand-alone servers.
+
+Note: By default, member computers follow the configuration of their domain controllers.",No,
+,Computer Configuration\Windows Settings\Account Policies\Password Policy,Store passwords using reversible encryption for all users in the domain,"At least Windows XP SP2, Windows Server 2003",Password Policy security settings are not registry keys. ,"Store passwords using reversible encryption
+
+This security setting determines whether the operating system stores passwords using reversible encryption.
+
+This policy provides support for applications that use protocols that require knowledge of the user's password for authentication purposes. Storing passwords using reversible encryption is essentially the same as storing plaintext versions of the passwords. For this reason, this policy should never be enabled unless application requirements outweigh the need to protect password information.
+
+This policy is required when using Challenge-Handshake Authentication Protocol (CHAP) authentication through remote access or Internet Authentication Services (IAS). It is also required when using Digest Authentication in Internet Information Services (IIS).
+
+Default: Disabled.",No,
+,Computer Configuration\Windows Settings\Account Policies\Account Lockout Policy,Account lockout duration,"At least Windows XP SP2, Windows Server 2003",Account Lockout Policy security settings are not registry keys. ,"Account lockout duration
+
+This security setting determines the number of minutes a locked-out account remains locked out before automatically becoming unlocked. The available range is from 0 minutes through 99,999 minutes. If you set the account lockout duration to 0, the account will be locked out until an administrator explicitly unlocks it.
+
+If an account lockout threshold is defined, the account lockout duration must be greater than or equal to the reset time.
+
+Default: None, because this policy setting only has meaning when an Account lockout threshold is specified.",No,
+,Computer Configuration\Windows Settings\Account Policies\Account Lockout Policy,Account lockout threshold,"At least Windows XP SP2, Windows Server 2003",Account Lockout Policy security settings are not registry keys. ,"Account lockout threshold
+
+This security setting determines the number of failed logon attempts that causes a user account to be locked out. A locked-out account cannot be used until it is reset by an administrator or until the lockout duration for the account has expired. You can set a value between 0 and 999 failed logon attempts. If you set the value to 0, the account will never be locked out.
+
+Failed password attempts against workstations or member servers that have been locked using either CTRL+ALT+DELETE or password-protected screen savers count as failed logon attempts.
+
+Default: 0.",No,
+,Computer Configuration\Windows Settings\Account Policies\Account Lockout Policy,Reset lockout counter after,"At least Windows XP SP2, Windows Server 2003",Account Lockout Policy security settings are not registry keys. ,"Reset account lockout counter after
+
+This security setting determines the number of minutes that must elapse after a failed logon attempt before the failed logon attempt counter is reset to 0 bad logon attempts. The available range is 1 minute to 99,999 minutes.
+
+If an account lockout threshold is defined, this reset time must be less than or equal to the Account lockout duration.
+
+Default: None, because this policy setting only has meaning when an Account lockout threshold is specified.",No,
+,Computer Configuration\Windows Settings\Local Policies\Kerberos Policy,Enforce user logon restrictions,"At least Windows XP SP2, Windows Server 2003",Kerberos Policy security settings are not registry keys.,"Enforce user logon restrictions
+
+This security setting determines whether the Kerberos V5 Key Distribution Center (KDC) validates every request for a session ticket against the user rights policy of the user account. Validation of each request for a session ticket is optional, because the extra step takes time and it may slow network access to services.
+
+Default: Enabled.",No,clients will get the new setting after a maximum of 8 hours but for DCs to assign these new settings a Gpupdate /force is required or waiting for the usual 5 minutes when the SCE engine assigns all modified settings.
+,Computer Configuration\Windows Settings\Local Policies\Kerberos Policy,Maximum lifetime for service ticket,"At least Windows XP SP2, Windows Server 2003",Kerberos Policy security settings are not registry keys.,"Maximum lifetime for service ticket
+
+This security setting determines the maximum amount of time (in minutes) that a granted session ticket can be used to access a particular service. The setting must be greater than 10 minutes and less than or equal to the setting for Maximum lifetime for user ticket.
+
+If a client presents an expired session ticket when it requests a connection to a server, the server returns an error message. The client must request a new session ticket from the Kerberos V5 Key Distribution Center (KDC). Once a connection is authenticated, however, it no longer matters whether the session ticket remains valid. Session tickets are used only to authenticate new connections with servers. Ongoing operations are not interrupted if the session ticket that is used to authenticate the connection expires during the connection.
+
+Default: 600 minutes (10 hours).",No,clients will get the new setting after a maximum of 8 hours but for DCs to assign these new settings a Gpupdate /force is required or waiting for the usual 5 minutes when the SCE engine assigns all modified settings.
+,Computer Configuration\Windows Settings\Local Policies\Kerberos Policy,Maximum lifetime for user ticket,"At least Windows XP SP2, Windows Server 2003",Kerberos Policy security settings are not registry keys.,"Maximum lifetime for user ticket
+
+This security setting determines the maximum amount of time (in hours) that a user's ticket-granting ticket (TGT) may be used.
+
+Default: 10 hours.",No,clients will get the new setting after a maximum of 8 hours but for DCs to assign these new settings a Gpupdate /force is required or waiting for the usual 5 minutes when the SCE engine assigns all modified settings.
+,Computer Configuration\Windows Settings\Local Policies\Kerberos Policy,Maximum lifetime for user ticket renewal,"At least Windows XP SP2, Windows Server 2003",Kerberos Policy security settings are not registry keys.,"Maximum lifetime for user ticket renewal
+
+This security setting determines the period of time (in days) during which a user's ticket-granting ticket (TGT) may be renewed.
+
+Default: 7 days.",No,clients will get the new setting after a maximum of 8 hours but for DCs to assign these new settings a Gpupdate /force is required or waiting for the usual 5 minutes when the SCE engine assigns all modified settings.
+,Computer Configuration\Windows Settings\Local Policies\Kerberos Policy,Maximum tolerance for computer clock synchronization,"At least Windows XP SP2, Windows Server 2003",Kerberos Policy security settings are not registry keys.,"Maximum tolerance for computer clock synchronization
+
+This security setting determines the maximum time difference (in minutes) that Kerberos V5 tolerates between the time on the client clock and the time on the domain controller running Windows Server 2003 that provides Kerberos authentication.
+
+To prevent ""replay attacks,"" Kerberos V5 uses time stamps as part of its protocol definition. For time stamps to work properly, the clocks of the client and the domain controller need to be in sync as much as possible. In other words, both computers must be set to the same time and date. Because the clocks of two computers are often out of sync, administrators can use this policy to establish the maximum acceptable difference to Kerberos V5 between a client clock and domain controller clock. If the difference between a client clock and the domain controller clock is less than the maximum time difference that is specified in this policy, any time stamp that is used in a session between the two computers is considered to be authentic.
+
+Important
+
+This setting is not persistent on pre Vista platforms. If you configure this setting and then restart the computer, this setting reverts to the default value.
+
+Default: 5 minutes.",No,clients will get the new setting after a maximum of 8 hours but for DCs to assign these new settings a Gpupdate /force is required or waiting for the usual 5 minutes when the SCE engine assigns all modified settings.
+,Computer Configuration\Windows Settings\Local Policies\Audit Policy,Audit account logon events,"At least Windows XP SP2, Windows Server 2003",Audit Policy security settings are not registry keys. ,"Audit account logon events
+
+This security setting determines whether the OS audits each time this computer validates an account¡¯s credentials.
+
+Account logon events are generated whenever a computer validates the credentials of an account for which it is authoritative.  Domain members and non-domain-joined machines are authoritative for their local accounts; domain controllers are all authoritative for accounts in the domain. Credential validation may be in support of a local logon, or, in the case of an Active Directory domain account on a domain controller, may be in support of a logon to another computer. Credential validation is stateless so there is no corresponding logoff event for account logon events. 
+
+If this policy setting is defined, the administrator can specify whether to audit only successes, only failures, both successes and failures, or to not audit these events at all (i.e. neither successes nor failures).
+
+Default: Success.
+
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Audit Policy,Audit account management,"At least Windows XP SP2, Windows Server 2003",Audit Policy security settings are not registry keys. ,"Audit account management
+
+This security setting determines whether to audit each event of account management on a computer. Examples of account management events include:
+
+A user account or group is created, changed, or deleted.
+A user account is renamed, disabled, or enabled.
+A password is set or changed.
+If you define this policy setting, you can specify whether to audit successes, audit failures, or not audit the event type at all. Success audits generate an audit entry when any account management event succeeds. Failure audits generate an audit entry when any account management event fails. To set this value to No auditing, in the Properties dialog box for this policy setting, select the Define these policy settings check box and clear the Success and Failure check boxes.
+
+Default:
+
+Success on domain controllers.
+No auditing on member servers.
+
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Audit Policy,Audit directory service access,"At least Windows XP SP2, Windows Server 2003",Audit Policy security settings are not registry keys. ,"Audit directory service access
+
+This security setting determines whether the OS audits user attempts to access Active Directory objects. Audit is only generated for objects that have system access control lists (SACL) specified, and only if the type of access requested (such as Write, Read, or Modify) and the account making the request match the settings in the SACL.  
+
+The administrator can specify whether to audit only successes, only failures, both successes and failures, or to not audit these events at all (i.e. neither successes nor failures).  
+
+If Success auditing is enabled, an audit entry is generated each time any  account successfully accesses a Directory object that has a matching SACL specified.  
+
+If Failure auditing is enabled, an audit entry is generated each time any user unsuccessfully attempts to access a Directory object that has a matching SACL specified.
+
+Default:
+
+Success on domain controllers.
+Undefined for a member computer.
+
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Audit Policy,Audit logon events,"At least Windows XP SP2, Windows Server 2003",Audit Policy security settings are not registry keys. ,"Audit logon events
+
+This security setting determines whether the OS audits each instance of a user attempting to log on to or to log off to this computer.  
+
+Log off events are generated whenever a logged on user account's logon session is terminated. If this policy setting is defined, the administrator can specify whether to audit only successes, only failures, both successes and failures, or to not audit these events at all (i.e. neither successes nor failures).
+
+Default: Success.",No,
+,Computer Configuration\Windows Settings\Local Policies\Audit Policy,Audit object access,"At least Windows XP SP2, Windows Server 2003",Audit Policy security settings are not registry keys. ,"Audit object access
+
+This security setting determines whether the OS audits user attempts to access non-Active Directory objects. Audit is only generated for objects that have system access control lists (SACL) specified, and only if the type of access requested (such as Write, Read, or Modify) and the account making the request match the settings in the SACL.   
+
+The administrator can specify whether to audit only successes, only failures, both successes and failures, or to not audit these events at all (i.e. neither successes nor failures).  
+
+If Success auditing is enabled, an audit entry is generated each time any account successfully accesses a non-Directory object that has a matching SACL specified.  
+
+If Failure auditing is enabled, an audit entry is generated each time any user unsuccessfully attempts to access a non-Directory object that has a matching SACL specified.
+
+Note that you can set a SACL on a file system object using the Security tab in that object's Properties dialog box.
+
+Default: No auditing.",No,
+,Computer Configuration\Windows Settings\Local Policies\Audit Policy,Audit policy change,"At least Windows XP SP2, Windows Server 2003",Audit Policy security settings are not registry keys. ,"Audit policy change
+
+This security setting determines whether the OS audits each instance of attempts to change user rights assignment policy, audit policy, account policy, or trust policy. 
+
+The administrator can specify whether to audit only successes, only failures, both successes and failures, or to not audit these events at all (i.e. neither successes nor failures). 
+
+If Success auditing is enabled, an audit entry is generated when an attempted change to user rights assignment policy, audit policy, or trust policy is successful. 
+
+If Failure auditing is enabled, an audit entry is generated when an attempted change to user rights assignment policy, audit policy, or trust policy is attempted by an account that is not authorized to make the requested policy change.
+
+Default:
+
+Success on domain controllers.
+No auditing on member servers.",No,
+,Computer Configuration\Windows Settings\Local Policies\Audit Policy,Audit privilege use,"At least Windows XP SP2, Windows Server 2003",Audit Policy security settings are not registry keys. ,"Audit privilege use
+
+This security setting determines whether to audit each instance of a user exercising a user right.
+
+If you define this policy setting, you can specify whether to audit successes, audit failures, or not audit this type of event at all. Success audits generate an audit entry when the exercise of a user right succeeds. Failure audits generate an audit entry when the exercise of a user right fails.
+
+To set this value to No auditing, in the Properties dialog box for this policy setting, select the Define these policy settings check box and clear the Success and Failure check boxes.
+
+Default: No auditing.
+
+Audits are not generated for use of the following user rights, even if success audits or failure audits are specified for Audit privilege use. Enabling auditing of these user rights tend to generate many events in the security log which may impede your computer's performance. To audit the following user rights, enable the FullPrivilegeAuditing registry key.
+
+Bypass traverse checking
+Debug programs
+Create a token object
+Replace process level token
+Generate security audits
+Back up files and directories
+Restore files and directories
+
+Caution
+
+Incorrectly editing the registry may severely damage your system. Before making changes to the registry, you should back up any valued data on the computer.",No,
+,Computer Configuration\Windows Settings\Local Policies\Audit Policy,Audit process tracking,"At least Windows XP SP2, Windows Server 2003",Audit Policy security settings are not registry keys. ,"Audit process tracking
+
+This security setting determines whether the OS audits process-related events such as process creation, process termination, handle duplication, and indirect object access. 
+
+If this policy setting is defined, the administrator can specify whether to audit only successes, only failures, both successes and failures, or to not audit these events at all (i.e. neither successes nor failures). 
+
+If Success auditing is enabled, an audit entry is generated each time the OS performs one of these process-related activities. 
+
+If Failure auditing is enabled, an audit entry is generated each time the OS fails to perform one of these activities.
+
+Default: No auditing
+
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Audit Policy,Audit system events,"At least Windows XP SP2, Windows Server 2003",Audit Policy security settings are not registry keys. ,"Audit system events
+
+This security setting determines whether the OS audits any of the following events: 
+
+? Attempted system time change
+? Attempted security system startup or shutdown
+? Attempt to load extensible authentication components
+? Loss of audited events due to auditing system failure
+? Security log size exceeding a configurable warning threshold level.
+
+If this policy setting is defined, the administrator can specify whether to audit only successes, only failures, both successes and failures, or to not audit these events at all (i.e. neither successes nor failures). 
+
+If Success auditing is enabled, an audit entry is generated each time the OS performs one of these activities successfully. 
+
+If Failure auditing is enabled, an audit entry is generated each time the OS attempts and fails to perform one of these activities.
+
+Default:
+
+Success on domain controllers.
+No auditing on member servers.",No,
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Access this computer from the network,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Access this computer from the network
+
+This user right determines which users and groups are allowed to connect to the computer over the network. Remote Desktop Services are not affected by this user right.
+
+Note: Remote Desktop Services was called Terminal Services in previous versions of Windows Server.
+
+Default on workstations and servers:
+Administrators
+Backup Operators
+Users
+Everyone
+
+Default on domain controllers:
+Administrators
+Authenticated Users
+Enterprise Domain Controllers
+Everyone
+Pre-Windows 2000 Compatible Access",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Access Credential Manager as a trusted caller,"At least Windows Vista, Windows Server 2008",User Rights security settings are not registry keys,"This setting is used by Credential Manager during Backup/Restore. No accounts should have this privilege, as it is only assigned to Winlogon. Users saved credentials might be compromised if this privilege is given to other entities.",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Act as part of the operating system,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Act as part of the operating system
+
+This user right allows a process to impersonate any user without authentication. The process can therefore gain access to the same local resources as that user.
+
+Processes that require this privilege should use the LocalSystem account, which already includes this privilege, rather than using a separate user account with this privilege specially assigned. If your organization only uses servers that are members of the Windows Server 2003 family, you do not need to assign this privilege to your users. However, if your organization uses servers running Windows 2000 or Windows NT 4.0, you might need to assign this privilege to use applications that exchange passwords in plaintext.
+
+Caution
+
+Assigning this user right can be a security risk. Only assign this user right to trusted users.
+
+Default: None.",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Add workstations to a domain,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Add workstations to domain
+
+This security setting determines which groups or users can add workstations to a domain.
+
+This security setting is valid only on domain controllers. By default, any authenticated user has this right and can create up to 10 computer accounts in the domain.
+
+Adding a computer account to the domain allows the computer to participate in Active Directory?based networking. For example, adding a workstation to a domain enables that workstation to recognize accounts and groups that exist in Active Directory.
+
+Default: Authenticated Users on domain controllers.
+
+Note: Users who have the Create Computer Objects permission on the Active Directory computers container can also create computer accounts in the domain. The distinction is that users with permissions on the container are not restricted to the creation of only 10 computer accounts. In addition, computer accounts that are created by means of Add workstations to domain have Domain Administrators as the owner of the computer account, while computer accounts that are created by means of permissions on the computers container have the creator as the owner of the computer account. If a user has permissions on the container and also has the Add workstations to domain user right, the computer is added, based on the computer container permissions rather than on the user right.
+
+",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Adjust memory quotas for a process,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Adjust memory quotas for a process
+
+This privilege determines who can change the maximum memory that can be consumed by a process.
+
+This user right is defined in the Default Domain Controller Group Policy object (GPO) and in the local security policy of workstations and servers.
+
+Note: This privilege is useful for system tuning, but it can be misused, for example, in a denial-of-service attack.
+
+Default: Administrators
+Local Service
+Network Service.
+
+",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Allow log on locally,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Allow log on locally
+
+This logon right determines which users can interactively log on to this computer. Logons initiated by pressing CTRL+ALT+DEL sequence on the attached keyboard requires the user to have this logon right. Additionally this logon right may be required by some service or administrative applications that can log on users. If you define this policy for a user or group, you must also give the Administrators group this right.
+
+Default on workstations and servers: Administrators
+Backup Operators
+Users.
+
+Default on domain controllers: Account Operators
+Administrators
+Backup Operators
+Print Operators
+Server Operators.
+
+",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Allow log on through Remote Desktop Services,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Allow log on through Remote Desktop Services
+
+This security setting determines which users or groups have permission to log on as a Remote Desktop Services client.
+
+Default:
+
+On workstation and servers: Administrators, Remote Desktop Users.
+On domain controllers: Administrators.
+
+Important
+
+This setting does not have any effect on Windows 2000 computers that have not been updated to Service Pack 2.",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Backup files and directories,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Back up files and directories
+
+This user right determines which users can bypass file and directory, registry, and other persistent object permissions for the purposes of backing up the system.
+
+Specifically, this user right is similar to granting the following permissions to the user or group in question on all files and folders on the system:
+
+Traverse Folder/Execute File
+List Folder/Read Data
+Read Attributes
+Read Extended Attributes
+Read Permissions
+
+Caution
+
+Assigning this user right can be a security risk. Since there is no way to be sure that a user is backing up data, stealing data, or copying data to be distributed, only assign this user right to trusted users.
+
+Default on workstations and servers: Administrators
+Backup Operators.
+
+Default on domain controllers:Administrators
+Backup Operators
+Server Operators
+
+",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Bypass traverse checking,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Bypass traverse checking
+
+This user right determines which users can traverse directory trees even though the user may not have permissions on the traversed directory. This privilege does not allow the user to list the contents of a directory, only to traverse directories.
+
+This user right is defined in the Default Domain Controller Group Policy object (GPO) and in the local security policy of workstations and servers.
+
+Default on workstations and servers:
+Administrators
+Backup Operators
+Users
+Everyone
+Local Service
+Network Service
+
+Default on domain controllers:
+Administrators
+Authenticated Users
+Everyone
+Local Service
+Network Service
+Pre-Windows 2000 Compatible Access
+
+",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Change the system time,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Change the system time
+
+This user right determines which users and groups can change the time and date on the internal clock of the computer. Users that are assigned this user right can affect the appearance of event logs. If the system time is changed, events that are logged will reflect this new time, not the actual time that the events occurred.
+
+This user right is defined in the Default Domain Controller Group Policy object (GPO) and in the local security policy of workstations and servers.
+
+Default on workstations and servers:
+Administrators
+Local Service
+
+Default on domain controllers:
+Administrators
+Server Operators
+Local Service
+
+",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Change the time zone,"At least Windows Vista, Windows Server 2008",User Rights security settings are not registry keys,"Change the Time Zone
+
+This user right determines which users and groups can change the time zone used by the computer for displaying the local time, which is the computer's system time plus the time zone offset. System time itself is absolute and is not affected by a change in the time zone. 
+
+This user right is defined in the Default Domain Controller Group Policy object (GPO) and in the local security policy of the workstations and servers. 
+
+Default: Administrators, Users",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Create a pagefile,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Create a pagefile
+
+This user right determines which users and groups can call an internal application programming interface (API) to create and change the size of a page file. This user right is used internally by the operating system and usually does not need to be assigned to any users.
+
+For information about how to specify a paging file size for a given drive, see To change the size of the virtual memory paging file.
+
+Default: Administrators.
+
+",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Create a token object,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Create a token object
+
+This security setting determines which accounts can be used by processes to create a token that can then be used to get access to any local resources when the process uses an internal application programming interface (API) to create an access token.
+
+This user right is used internally by the operating system. Unless it is necessary, do not assign this user right to a user, group, or process other than Local System.
+
+Caution
+
+Assigning this user right can be a security risk. Do not assign this user right to any user, group, or process that you do not want to take over the system.
+Default: None
+
+",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Create global objects,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Create global objects
+
+This security setting determines whether users can create global objects that are available to all sessions. Users can still create objects that are specific to their own session if they do not have this user right. Users who can create global objects could affect processes that run under other users' sessions, which could lead to application failure or data corruption.
+
+Caution
+
+Assigning this user right can be a security risk. Assign this user right only to trusted users.
+
+Default:
+
+Administrators
+Local Service
+Network Service
+Service",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Create permanent shared objects,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Create permanent shared objects
+
+This user right determines which accounts can be used by processes to create a directory object using the object manager.
+
+This user right is used internally by the operating system and is useful to kernel-mode components that extend the object namespace. Because components that are running in kernel mode already have this user right assigned to them, it is not necessary to specifically assign it.
+
+Default: None.",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Create Symbolic Links,"At least Windows Vista, Windows Server 2008",User Rights security settings are not registry keys,"Create Symbolic Links
+
+This privilege determines if the user can create a symbolic link from the computer he is logged on to.
+
+Default: Administrator
+
+WARNING: This privilege should only be given to trusted users. Symbolic links can expose security vulnerabilities in applications that aren?t designed to handle them.
+
+Note
+This setting can be used in conjunction a symlink filesystem setting that can be manipulated with the command line utility to control the kinds of symlinks that are allowed on the machine. Type ?fsutil behavior set symlinkevalution /?? at the command line to get more information about fsutil and symbolic links.",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Debug programs,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Debug programs
+
+This user right determines which users can attach a debugger to any process or to the kernel. Developers who are debugging their own applications do not need to be assigned this user right. Developers who are debugging new system components will need this user right to be able to do so. This user right provides complete access to sensitive and critical operating system components.
+
+Caution
+
+Assigning this user right can be a security risk. Only assign this user right to trusted users.
+
+Default: Administrators",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Deny access to this computer from the network,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Deny access to this computer from the network
+
+This security setting determines which users are prevented from accessing a computer over the network. This policy setting supersedes the Access this computer from the network policy setting if a user account is subject to both policies.
+
+Default: Guest",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Deny log on as a batch job,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Deny log on as a batch job
+
+This security setting determines which accounts are prevented from being able to log on as a batch job. This policy setting supersedes the Log on as a batch job policy setting if a user account is subject to both policies.
+
+Default: None.
+
+",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Deny log on as a service,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Deny log on as a service
+
+This security setting determines which service accounts are prevented from registering a process as a service. This policy setting supersedes the Log on as a service policy setting if an account is subject to both policies.
+
+Note: This security setting does not apply to the System, Local Service, or Network Service accounts.
+
+Default: None.",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Deny log on locally,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Deny log on locally
+
+This security setting determines which users are prevented from logging on at the computer. This policy setting supersedes the Allow log on locally policy setting if an account is subject to both policies.
+
+Important
+
+If you apply this security policy to the Everyone group, no one will be able to log on locally.
+
+Default: None.",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Deny log on through Remote Desktop Services,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Deny log on through Remote Desktop Services
+
+This security setting determines which users and groups are prohibited from logging on as a Remote Desktop Services client.
+
+Default: None.
+
+Important
+
+This setting does not have any effect on Windows 2000 computers that have not been updated to Service Pack 2.",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Enable computer and user accounts to be trusted for delegation,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Enable computer and user accounts to be trusted for delegation
+
+This security setting determines which users can set the Trusted for Delegation setting on a user or computer object.
+
+The user or object that is granted this privilege must have write access to the account control flags on the user or computer object. A server process running on a computer (or under a user context) that is trusted for delegation can access resources on another computer using delegated credentials of a client, as long as the client account does not have the Account cannot be delegated account control flag set.
+
+This user right is defined in the Default Domain Controller Group Policy object (GPO) and in the local security policy of workstations and servers.
+
+Caution
+
+Misuse of this user right, or of the Trusted for Delegation setting, could make the network vulnerable to sophisticated attacks using Trojan horse programs that impersonate incoming clients and use their credentials to gain access to network resources.
+
+Default: Administrators on domain controllers.",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Force shutdown from a remote system,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Force shutdown from a remote system
+
+This security setting determines which users are allowed to shut down a computer from a remote location on the network. Misuse of this user right can result in a denial of service.
+
+This user right is defined in the Default Domain Controller Group Policy object (GPO) and in the local security policy of workstations and servers.
+
+Default:
+
+On workstations and servers: Administrators.
+On domain controllers: Administrators, Server Operators.",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Generate security audits,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Generate security audits
+
+This security setting determines which accounts can be used by a process to add entries to the security log. The security log is used to trace unauthorized system access. Misuse of this user right can result in the generation of many auditing events, potentially hiding evidence of an attack or causing a denial of service if the Audit: Shut down system immediately if unable to log security audits security policy setting is enabled. For more information see Audit: Shut down system immediately if unable to log security audits
+
+Default: Local Service
+Network Service.",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Impersonate a client after authentication,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Impersonate a client after authentication
+
+Assigning this privilege to a user allows programs running on behalf of that user to impersonate a client. Requiring this user right for this kind of impersonation prevents an unauthorized user from convincing a client to connect (for example, by remote procedure call (RPC) or named pipes) to a service that they have created and then impersonating that client, which can elevate the unauthorized user's permissions to administrative or system levels.
+
+Caution
+
+Assigning this user right can be a security risk. Only assign this user right to trusted users.
+
+Default:
+
+Administrators
+Local Service
+Network Service
+Service
+
+Note: By default, services that are started by the Service Control Manager have the built-in Service group added to their access tokens. Component Object Model (COM) servers that are started by the COM infrastructure and that are configured to run under a specific account also have the Service group added to their access tokens. As a result, these services get this user right when they are started.
+
+In addition, a user can also impersonate an access token if any of the following conditions exist.
+
+The access token that is being impersonated is for this user.
+The user, in this logon session, created the access token by logging on to the network with explicit credentials.
+The requested level is less than Impersonate, such as Anonymous or Identify.
+Because of these factors, users do not usually need this user right.
+
+For more information, search for ""SeImpersonatePrivilege"" in the Microsoft Platform SDK.
+
+Warning
+
+If you enable this setting, programs that previously had the Impersonate privilege may lose it, and they may not run.",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Increase a process working set,"At least Windows Vista, Windows Server 2008",User Rights security settings are not registry keys,"Increase a process working set
+
+This privilege determines which user accounts can increase or decrease the size of a process¡¯s working set. 
+Increase a process working set
+
+This privilege determines which user accounts can increase or decrease the size of a process¡¯s working set. 
+
+Default: Users
+
+The working set of a process is the set of memory pages currently visible to the process in physical RAM memory. These pages are resident and available for an application to use without triggering a page fault. The minimum and maximum working set sizes affect the virtual memory paging behavior of a process.
+
+Warning: Increasing the working set size for a process decreases the amount of physical memory available to the rest of the system.",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Increase scheduling priority,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Increase scheduling priority
+
+This security setting determines which accounts can use a process with Write Property access to another process to increase the execution priority assigned to the other process. A user with this privilege can change the scheduling priority of a process through the Task Manager user interface.
+
+Default: Administrators.",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Load and unload device drivers,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Load and unload device drivers
+
+This user right determines which users can dynamically load and unload device drivers or other code in to kernel mode. This user right does not apply to Plug and Play device drivers. It is recommended that you do not assign this privilege to other users. 
+
+Caution
+
+Assigning this user right can be a security risk. Do not assign this user right to any user, group, or process that you do not want to take over the system.
+
+Default on workstations and servers: Administrators.
+
+Default on domain controllers:
+Administrators
+Print Operators",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Lock pages in memory,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Lock pages in memory
+
+This security setting determines which accounts can use a process to keep data in physical memory, which prevents the system from paging the data to virtual memory on disk. Exercising this privilege could significantly affect system performance by decreasing the amount of available random access memory (RAM).
+
+Default: None.",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Log on as a batch job,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Log on as a batch job
+
+This security setting allows a user to be logged on by means of a batch-queue facility and is provided only for compatibility with older versions of Windows.
+
+For example, when a user submits a job by means of the task scheduler, the task scheduler logs that user on as a batch user rather than as an interactive user.
+
+
+Default: Administrators
+Backup Operators.",No,"Note: In Windows 2000 Server, Windows 2000 Professional, Windows XP Professional, and the Windows Server 2003 family, the Task Scheduler automatically grants this right as necessary."
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Log on as a service,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Log on as a service
+
+This security setting allows a security principal to log on as a service. Services can be configured to run under the Local System, Local Service, or Network Service accounts, which have a built in right to log on as a service. Any service that runs under a separate user account must be assigned the right.
+
+Default setting: None.",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Log on locally,Only Windows XP SP2,User Rights security settings are not registry keys,"Log on locally
+
+Determines which users can log on to the computer. 
+
+Important
+
+Modifying this setting may affect compatibility with clients, services, and applications. For compatibility information about this setting, see Allow log on locally (http://go.microsoft.com/fwlink/?LinkId=24268 ) at the Microsoft website. 
+
+Default: 
+
+? On workstations and servers: Administrators, Backup Operators, Power Users, Users, and Guest.
+? On domain controllers: Account Operators, Administrators, Backup Operators, and Print Operators. ",No,"Note: See also the corresponding Windows Server 2003 Allow log on locally policy setting, earlier in this worksheet. "
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Manage auditing and security log,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Manage auditing and security log
+
+This security setting determines which users can specify object access auditing options for individual resources, such as files, Active Directory objects, and registry keys.
+
+This security setting does not allow a user to enable file and object access auditing in general. For such auditing to be enabled, the Audit object access setting in Computer Configuration\Windows Settings\Security Settings\Local Policies\\Audit Policies must be configured.
+
+You can view audited events in the security log of the Event Viewer. A user with this privilege can also view and clear the security log.
+
+Default: Administrators.",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Modify an object label,"At least Windows Vista, Windows Server 2008",User Rights security settings are not registry keys,"Modify an object label
+
+This privilege determines which user accounts can modify the integrity label of objects, such as files, registry keys, or processes owned by other users. Processes running under a user account can modify the label of an object owned by that user to a lower level without this privilege.
+
+Default: None",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Modify firmware environment values,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Modify firmware environment values
+
+This security setting determines who can modify firmware environment values. Firmware environment variables are settings stored in the nonvolatile RAM of non-x86-based computers. The effect of the setting depends on the processor.
+
+On x86-based computers, the only firmware environment value that can be modified by assigning this user right is the Last Known Good Configuration setting, which should only be modified by the system.
+On Itanium-based computers, boot information is stored in nonvolatile RAM. Users must be assigned this user right to run bootcfg.exe and to change the Default Operating System setting on Startup and Recovery in System Properties.
+On all computers, this user right is required to install or upgrade Windows.
+
+Note: This security setting does not affect who can modify the system environment variables and user environment variables that are displayed on the Advanced tab of System Properties. For information about how to modify these variables, see To add or change the values of environment variables.
+
+Default: Administrators.",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Perform volume maintenance tasks,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Perform volume maintenance tasks
+
+This security setting determines which users and groups can run maintenance tasks on a volume, such as remote defragmentation.
+
+Use caution when assigning this user right. Users with this user right can explore disks and extend files in to memory that contains other data. When the extended files are opened, the user might be able to read and modify the acquired data.
+
+Default: Administrators",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Profile single process,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Profile single process
+
+This security setting determines which users can use performance monitoring tools to monitor the performance of nonsystem processes.
+
+Default: Administrators, Power users.",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Profile system performance,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Profile system performance
+
+This security setting determines which users can use performance monitoring tools to monitor the performance of system processes.
+
+Default: Administrators.
+
+",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Remove computer from docking station,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Remove computer from docking station
+
+This security setting determines whether a user can undock a portable computer from its docking station without logging on.
+
+If this policy is enabled, the user must log on before removing the portable computer from its docking station. If this policy is disabled, the user may remove the portable computer from its docking station without logging on.
+
+Default: Administrators, Power Users, Users",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Replace a process level token,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Replace a process level token
+
+This security setting determines which user accounts can call the CreateProcessAsUser() application programming interface (API) so that one service can start another. An example of a process that uses this user right is Task Scheduler. For information about Task Scheduler, see Task Scheduler overview.
+
+Default: Network Service, Local Service.",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Restore files and directories,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Restore files and directories
+
+This security setting determines which users can bypass file, directory, registry, and other persistent objects permissions when restoring backed up files and directories, and determines which users can set any valid security principal as the owner of an object.
+
+Specifically, this user right is similar to granting the following permissions to the user or group in question on all files and folders on the system:
+
+Traverse Folder/Execute File
+Write
+
+Caution
+
+Assigning this user right can be a security risk. Since users with this user right can overwrite registry settings, hide data, and gain ownership of system objects, only assign this user right to trusted users.
+
+Default:
+
+Workstations and servers: Administrators, Backup Operators.
+Domain controllers: Administrators, Backup Operators, Server Operators.",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Shut down the system,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Shut down the system
+
+This security setting determines which users who are logged on locally to the computer can shut down the operating system using the Shut Down command. Misuse of this user right can result in a denial of service.
+
+Default on Workstations: Administrators, Backup Operators, Users.
+
+Default on Servers: Administrators, Backup Operators.
+
+Default on Domain controllers: Administrators, Backup Operators, Server Operators, Print Operators.",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Synchronize directory service data,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Synchronize directory service data
+
+This security setting determines which users and groups have the authority to synchronize all directory service data. This is also known as Active Directory synchronization.
+
+Defaults: None.",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\User Rights Assignment,Take ownership of files or other objects,"At least Windows XP SP2, Windows Server 2003",User Rights security settings are not registry keys,"Take ownership of files or other objects
+
+This security setting determines which users can take ownership of any securable object in the system, including Active Directory objects, files and folders, printers, registry keys, processes, and threads.
+
+Caution
+
+Assigning this user right can be a security risk. Since owners of objects have full control of them, only assign this user right to trusted users.
+
+Default: Administrators.",No,Logoff required
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Accounts: Administrator account status,"Windows XP SP2, Windows Server 2003",Not a registry key,"Accounts: Administrator account status
+
+This security setting determines whether the local Administrator account is enabled or disabled.
+
+Notes
+
+If you try to reenable the Administrator account after it has been disabled, and if the current Administrator password does not meet the password requirements, you cannot reenable the account. In this case, an alternative member of the Administrators group must reset the password on the Administrator account. For information about how to reset a password, see To reset a password.
+Disabling the Administrator account can become a maintenance issue under certain circumstances. 
+
+Under Safe Mode boot, the disabled Administrator account will only be enabled if the machine is non-domain joined and there are no other local active administrator accounts.  If the computer is domain joined the disabled administrator will not be enabled.
+
+Default: Disabled.",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Accounts: Block Microsoft accounts,"Windows 8, Windows Server 2012",Not a registry key,"Accounts: Block Microsoft accounts
+
+This policy setting prevents users from adding new Microsoft accounts on this computer.
+
+If you select the ¡°Users can¡¯t add Microsoft accounts¡± option, users will not be able to create ne Microsoft accounts on this computer, switch a local account to a Microsoft account, or connect a domain account to a Microsoft account. This is the preferred option if you need to limit the use of Microsoft accounts in your enterprise.
+
+If you select the ¡°Users can¡¯t add or log on with Microsoft accounts¡± option, existing Microsoft account users will not be able to log on to Windows. Selecting this option might make it impossible for an existing administrator on this computer to log on and manage the system.
+
+If you disable or do not configure this policy (recommended), users will be able to use Microsoft accounts with Windows.
+",,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Accounts: Guest account status,"At least Windows XP SP2, Windows Server 2003",Not a registry key,"Accounts: Guest account status
+
+This security setting determines if the Guest account is enabled or disabled.
+
+Default: Disabled.
+
+Note: If the Guest account is disabled and the security option Network Access: Sharing and Security Model for local accounts is set to Guest Only, network logons, such as those performed by the Microsoft Network Server (SMB Service), will fail.",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Accounts: Limit local account use of blank passwords to console logon only,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Control\Lsa\LimitBlankPasswordUse,"Accounts: Limit local account use of blank passwords to console logon only
+
+This security setting determines whether local accounts that are not password protected can be used to log on from locations other than the physical computer console. If enabled, local accounts that are not password protected will only be able to log on at the computer's keyboard.
+
+Default: Enabled.
+
+
+Warning:
+
+Computers that are not in physically secure locations should always enforce strong password policies for all local user accounts. Otherwise, anyone with physical access to the computer can log on by using a user account that does not have a password. This is especially important for portable computers.
+If you apply this security policy to the Everyone group, no one will be able to log on through Remote Desktop Services.
+
+Notes
+
+This setting does not affect logons that use domain accounts.
+It is possible for applications that use remote interactive logons to bypass this setting.
+
+Note: Remote Desktop Services was called Terminal Services in previous versions of Windows Server.",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Accounts: Rename administrator account,"At least Windows XP SP2, Windows Server 2003",Not a registry key,"Accounts: Rename administrator account
+
+This security setting determines whether a different account name is associated with the security identifier (SID) for the account Administrator. Renaming the well-known Administrator account makes it slightly more difficult for unauthorized persons to guess this privileged user name and password combination.
+
+Default: Administrator.",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Accounts: Rename guest account,"At least Windows XP SP2, Windows Server 2003",Not a registry key,"Accounts: Rename guest account
+
+This security setting determines whether a different account name is associated with the security identifier (SID) for the account ""Guest."" Renaming the well-known Guest account makes it slightly more difficult for unauthorized persons to guess this user name and password combination.
+
+Default: Guest.
+
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Audit: Audit the accesss of global system objects,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Control\Lsa\AuditBaseObjects,"Audit: Audit the access of global system objects
+
+This security setting determines whether to audit the access of global system objects.
+
+If this policy is enabled, it causes system objects, such as mutexes, events, semaphores and DOS devices, to be created with a default system access control list (SACL). Only named objects are given a SACL; SACLs are not given to objects without names.  If the Audit object access audit policy is also enabled, access to these system objects is audited.
+
+Note: When configuring this security setting, changes will not take effect until you restart Windows.
+
+Default: Disabled.",Yes,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Audit: Audit the use of Backup and Restore privilege,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Control\Lsa\FullPrivilegeAuditing,"Audit: Audit the use of Backup and Restore privilege
+
+This security setting determines whether to audit the use of all user privileges, including Backup and Restore, when the Audit privilege use policy is in effect. Enabling this option when the Audit privilege use policy is also enabled generates an audit event for every file that is backed up or restored.
+
+If you disable this policy, then use of the Backup or Restore privilege is not audited even when Audit privilege use is enabled.
+
+Note: On Windows versions prior to Windows Vista configuring this security setting, changes will not take effect until you restart Windows. Enabling this setting can cause a LOT of events, sometimes hundreds per second, during a backup operation.
+
+Default: Disabled.
+
+",Yes,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Audit: Force audit policy subcategory settings (Windows Vista or later) to override audit policy category settings,"At least Windows Vista, Windows Server 2008",MACHINE\System\CurrentControlSet\Control\Lsa\SCENoApplyLegacyAuditPolicy,"Audit: Force audit policy subcategory settings (Windows Vista or later) to override audit policy category settings.
+
+Windows Vista and later versions of Windows allow audit policy to be managed in a more precise way using audit policy subcategories.  Setting audit policy at the category level will override the new subcategory audit policy feature.  Group Policy only allows audit policy to be set at the category level, and existing group policy may override the subcategory settings of new machines as they are joined to the domain or upgraded to Windows Vista or later versions.  To allow audit policy to be managed using subcategories without requiring a change to Group Policy, there is a new registry value in Windows Vista and later versions, SCENoApplyLegacyAuditPolicy, which prevents the application of category-level audit policy from Group Policy and from the Local Security Policy administrative tool.
+
+If the category level audit policy set here is not consistent with the events that are currently being generated, the cause might be that this registry key is set.
+
+Default: Disabled",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Audit: Shut down system immediately if unable to log security audits,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Control\Lsa\CrashOnAuditFail,"Audit: Shut down system immediately if unable to log security audits
+
+This security setting determines whether the system shuts down if it is unable to log security events.
+
+If this security setting is enabled, it causes the system to stop if a security audit cannot be logged for any reason. Typically, an event fails to be logged when the security audit log is full and the retention method that is specified for the security log is either Do Not Overwrite Events or Overwrite Events by Days.
+
+If the security log is full and an existing entry cannot be overwritten, and this security option is enabled, the following Stop error appears:
+
+STOP: C0000244 {Audit Failed}
+An attempt to generate a security audit failed.
+To recover, an administrator must log on, archive the log (optional), clear the log, and reset this option as desired. Until this security setting is reset, no users, other than a member of the Administrators group will be able to log on to the system, even if the security log is not full.
+
+Note: On Windows versions prior to Windows Vista configuring this security setting, changes will not take effect until you restart Windows.
+
+Default: Disabled.
+
+",Yes,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,DCOM: Machine Access Restrictions in Security Descriptor Definition Language (SDDL) syntax,"At least Windows XP SP2, Windows Server 2003",MACHINE\SOFTWARE\policies\Microsoft\windows NT\DCOM\MachineAccessRestriction,"DCOM: Machine Access Restrictions in Security Descriptor Definition Language (SDDL) syntax
+
+This policy setting determines which users or groups can access DCOM application remotely or locally. This setting is used to control the attack surface of the computer for DCOM applications.
+
+You can use this policy setting to specify access permissions to all the computers to particular users for DCOM applications in the enterprise. When you specify the users or groups that are to be given permission, the security descriptor field is populated with the Security Descriptor Definition Language representation of those groups and privileges. If the security descriptor is left blank, the policy setting is defined in the template, but it is not enforced. Users and groups can be given explicit Allow or Deny privileges on both local access and remote access.
+
+The registry settings that are created as a result of enabling the DCOM: Machine Access Restrictions in Security Descriptor Definition Language (SDDL) syntax policy setting take precedence over (have higher priority) the previous registry settings in this area. Remote Procedure Call Services (RpcSs) checks the new registry keys in the Policies section for the computer restrictions, and these registry entries take precedence over the existing registry keys under OLE. This means that previously existing registry settings are no longer effective, and if you make changes to the existing settings, computer access permissions for users are not changed. Use care in configuring their list of users and groups.
+
+The possible values for this policy setting are:
+
+¨° Blank. This represents the local security policy way of deleting the policy enforcement key. This value deletes the policy and then sets it as Not defined state. The Blank value is set by using the ACL editor and emptying the list, and then pressing OK.
+
+¨° SDDL. This is the Security Descriptor Definition Language representation of the groups and privileges you specify when you enable this policy.
+
+¨° Not Defined. This is the default value.
+
+Note
+If the administrator is denied permission to access DCOM applications due to the changes made to DCOM in Windows, the administrator can use the DCOM: Machine Access Restrictions in Security Descriptor Definition Language (SDDL) syntax policy setting to manage DCOM access to the computer. The administrator can specify which users and groups can access the DCOM application on the computer both ",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,DCOM: Machine Launch Restrictions in Security Descriptor Definition Language (SDDL) syntax,"At least Windows XP SP2, Windows Server 2003",MACHINE\SOFTWARE\policies\Microsoft\windows NT\DCOM\MachineLaunchRestriction,"DCOM: Machine Launch Restrictions in Security Descriptor Definition Language (SDDL) syntax
+
+This policy setting determines which users or groups can launch or activate DCOM applications remotely or locally. This setting is used to control the attack surface of the computer for DCOM applications.
+
+You can use this setting to grant access to all the computers to users of DCOM applications. When you define this setting, and specify the users or groups that are to be given permission, the security descriptor field is populated with the Security Descriptor Definition Language representation of those groups and privileges. If the security descriptor is left blank, the policy setting is defined in the template, but it is not enforced. Users and groups can be given explicit Allow or Deny privileges on local launch, remote launch, local activation, and remote activation.
+
+The registry settings that are created as a result of this policy take precedence over the previous registry settings in this area. Remote Procedure Call Services (RpcSs) checks the new registry keys in the Policies section for the computer restrictions; these entries take precedence over the existing registry keys under OLE.
+
+The possible values for this Group Policy setting are:
+
+ò Blank. This represents the local security policy way of deleting the policy enforcement key. This value deletes the policy and then sets it to Not defined state. The Blank value is set by using the ACL editor and emptying the list, and then pressing OK.
+
+ò SDDL. This is the Security Descriptor Definition Language representation of the groups and privileges you specify when you enable this policy.
+
+ò Not Defined. This is the default value.
+
+Note
+If the administrator is denied access to activate and launch DCOM applications due to the changes made to DCOM in this version of Windows, this policy setting can be used for controlling the DCOM activation and launch to the computer. The administrator can specify which users and groups can launch and activate DCOM applications on the computer both locally and remotely by using the DCOM: Machine Launch Restrictions in Security Descriptor Definition Language (SDDL) syntax policy setting. This restores control of the DCOM application to the administrator and specified users. To do this, open the DCOM: Machine Launch Restrictions in Security Descriptor Definition L",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Devices: Allow undock without having to log on,"At least Windows XP SP2, Windows Server 2003",MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System\UndockWithoutLogon,"Devices: Allow undock without having to log on
+
+This security setting determines whether a portable computer can be undocked without having to log on. If this policy is enabled, logon is not required and an external hardware eject button can be used to undock the computer. If disabled, a user must log on and have the Remove computer from docking station privilege to undock the computer.
+
+Default: Enabled.
+
+Caution
+
+Disabling this policy may tempt users to try and physically remove the laptop from its docking station using methods other than the external hardware eject button. Since this may cause damage to the hardware, this setting, in general, should only be disabled on laptop configurations that are physically securable.
+
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Devices: Allowed to format and eject removable media,"At least Windows XP SP2, Windows Server 2003",MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\AllocateDASD,"Devices: Allowed to format and eject removable media
+
+This security setting determines who is allowed to format and eject removable NTFS media. This capability can be given to:
+
+Administrators
+Administrators and Interactive Users
+
+Default: This policy is not defined and only Administrators have this ability.
+
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Devices: Prevent users from installing printer drivers,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Control\Print\Providers\LanMan Print Services\Servers\AddPrinterDrivers,"Devices: Prevent users from installing printer drivers when connecting to shared printers
+
+For a computer to print to a shared printer, the driver for that shared printer must be installed on the local computer. This security setting determines who is allowed to install a printer driver as part of connecting to a shared printer. If this setting is enabled, only Administrators can install a printer driver as part of connecting to a shared printer. If this setting is disabled, any user can install a printer driver as part of connecting to a shared printer.
+
+Default on servers: Enabled.
+Default on workstations: Disabled
+
+
+Notes
+
+This setting does not affect the ability to add a local printer.
+This setting does not affect Administrators.
+",No,"For the policy change to take effect, the spooler service needs to be stopped/restarted, but the system does not have to be rebooted."
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Devices: Restrict CD-ROM access to locally logged-on user only,"At least Windows XP SP2, Windows Server 2003",MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\AllocateCDRoms,"Devices: Restrict CD-ROM access to locally logged-on user only
+
+This security setting determines whether a CD-ROM is accessible to both local and remote users simultaneously.
+
+If this policy is enabled, it allows only the interactively logged-on user to access removable CD-ROM media. If this policy is enabled and no one is logged on interactively, the CD-ROM can be accessed over the network.
+
+Default: This policy is not defined and CD-ROM access is not restricted to the locally logged-on user.
+
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Devices: Restrict floppy access to locally logged-on user only,"At least Windows XP SP2, Windows Server 2003",MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\AllocateFloppies,"Devices: Restrict floppy access to locally logged-on user only
+
+This security setting determines whether removable floppy media are accessible to both local and remote users simultaneously.
+
+If this policy is enabled, it allows only the interactively logged-on user to access removable floppy media. If this policy is enabled and no one is logged on interactively, the floppy can be accessed over the network.
+
+Default: This policy is not defined and floppy disk drive access is not restricted to the locally logged-on user.
+
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Domain controller: Allow server operators to schedule tasks,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Control\Lsa\SubmitControl,"Domain controller: Allow server operators to schedule tasks
+
+This security setting determines if Server Operators are allowed to submit jobs by means of the AT schedule facility.
+
+Note: This security setting only affects the AT schedule facility; it does not affect the Task Scheduler facility.
+Default: This policy is not defined, which means that the system treats it as disabled.
+
+",Yes,Restart of service might be sufficient
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Domain controller: LDAP server signing requirements,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Services\NTDS\Parameters\LDAPServerIntegrity,"Domain controller: LDAP server signing requirements
+
+This security setting determines whether the LDAP server requires signing to be negotiated with LDAP clients, as follows:
+
+None: Data signing is not required in order to bind with the server. If the client requests data signing, the server supports it.
+Require signature: Unless TLS\SSL is being used, the LDAP data signing option must be negotiated.
+
+Default: This policy is not defined, which has the same effect as None.
+
+Caution
+
+If you set the server to Require Signature, you must also set the client. Not setting the client results in loss of connection with the server.
+
+Notes
+
+This setting does not have any impact on LDAP simple bind or LDAP simple bind through SSL. No Microsoft LDAP clients that are shipped with Windows XP Professional use LDAP simple bind or LDAP simple bind through SSL to talk to a domain controller.
+If signing is required, then LDAP simple bind and LDAP simple bind through SSL requests are rejected. No Microsoft LDAP clients running Windows XP Professional or the Windows Server 2003 family use LDAP simple bind or LDAP simple bind through SSL to bind to directory service.
+
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Domain controller: Refuse machine account password changes,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters\RefusePasswordChange,"Domain controller: Refuse machine account password changes
+
+This security setting determines whether domain controllers will refuse requests from member computers to change computer account passwords. By default, member computers change their computer account passwords every 30 days. If enabled, the domain controller will refuse computer account password change requests.
+
+If it is enabled, this setting does not allow a domain controller to accept any changes to a computer account's password.
+
+Default: This policy is not defined, which means that the system treats it as Disabled.
+
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Domain member: Digitally encrypt or sign secure channel data (always),"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters\RequireSignOrSeal,"Domain member: Digitally encrypt or sign secure channel data (always)
+
+This security setting determines whether all secure channel traffic initiated by the domain member must be signed or encrypted.
+
+When a computer joins a domain, a computer account is created. After that, when the system starts, it uses the computer account password to create a secure channel with a domain controller for its domain. This secure channel is used to perform operations such as NTLM pass through authentication, LSA SID/name Lookup etc.
+
+This setting determines whether or not all secure channel traffic initiated by the domain member meets minimum security requirements. Specifically it determines whether all secure channel traffic initiated by the domain member must be signed or encrypted. If this policy is enabled, then the secure channel will not be established unless either signing or encryption of all secure channel traffic is negotiated. If this policy is disabled, then encryption and signing of all secure channel traffic is negotiated with the Domain Controller in which case the level of signing and encryption depends on the version of the Domain Controller and the settings of the following two policies:
+
+Domain member: Digitally encrypt secure channel data (when possible)
+Domain member: Digitally sign secure channel data (when possible)
+
+Default: Enabled.
+
+Notes:
+
+If this policy is enabled, the policy Domain member: Digitally sign secure channel data (when possible) is assumed to be enabled regardless of its current setting. This ensures that the domain member attempts to negotiate at least signing of the secure channel traffic.
+If this policy is enabled, the policy Domain member: Digitally sign secure channel data (when possible) is assumed to be enabled regardless of its current setting. This ensures that the domain member attempts to negotiate at least signing of the secure channel traffic.
+Logon information transmitted over the secure channel is always encrypted regardless of whether encryption of ALL other secure channel traffic is negotiated or not.
+
+",No,"Important: In order to take advantage of this policy on member workstations and servers, all domain controllers that constitute the member¡¯s domain must be running Windows NT 4.0 Service Pack 6 or higher. 
+In order to take advantage of this policy on doma"
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Domain member: Digitally encrypt secure channel data (when possible),"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters\SealSecureChannel,"Domain member: Digitally encrypt secure channel data (when possible)
+
+This security setting determines whether a domain member attempts to negotiate encryption for all secure channel traffic that it initiates.
+
+When a computer joins a domain, a computer account is created. After that, when the system starts, it uses the computer account password to create a secure channel with a domain controller for its domain. This secure channel is used to perform operations such as NTLM passthrough authentication, LSA SID/name Lookup etc.
+
+This setting determines whether or not the domain member attempts to negotiate encryption for all secure channel traffic that it initiates. If enabled, the domain member will request encryption of all secure channel traffic. If the domain controller supports encryption of all secure channel traffic, then all secure channel traffic will be encrypted. Otherwise only logon information transmitted over the secure channel will be encrypted. If this setting is disabled, then the domain member will not attempt to negotiate secure channel encryption.
+
+Default: Enabled.
+
+Important
+
+There is no known reason for disabling this setting. Besides unnecessarily reducing the potential confidentiality level of the secure channel, disabling this setting may unnecessarily reduce secure channel throughput, because concurrent API calls that use the secure channel are only possible when the secure channel is signed or encrypted.
+
+Note: Domain controllers are also domain members and establish secure channels with other domain controllers in the same domain as well as domain controllers in trusted domains.
+
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Domain member: Digitally sign secure channel data (when possible) ,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters\SignSecureChannel,"Domain member: Digitally sign secure channel data (when possible)
+
+This security setting determines whether a domain member attempts to negotiate signing for all secure channel traffic that it initiates.
+
+When a computer joins a domain, a computer account is created. After that, when the system starts, it uses the computer account password to create a secure channel with a domain controller for its domain. This secure channel is used to perform operations such as NTLM pass through authentication, LSA SID/name Lookup etc.
+
+This setting determines whether or not the domain member attempts to negotiate signing for all secure channel traffic that it initiates. If enabled, the domain member will request signing of all secure channel traffic. If the Domain Controller supports signing of all secure channel traffic, then all secure channel traffic will be signed which ensures that it cannot be tampered with in transit.
+
+Default: Enabled.
+
+Notes:
+
+If the policy Domain member: Digitally encrypt or sign secure channel data (always) is enabled, then this policy is assumed to be enabled regardless of its current setting.
+Domain controllers are also domain members and establish secure channels with other domain controllers in the same domain as well as domain controllers in trusted domains.
+
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Domain member: Disable machine account password changes,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters\DisablePasswordChange,"Domain member: Disable machine account password changes
+
+Determines whether a domain member periodically changes its computer account password. If this setting is enabled, the domain member does not attempt to change its computer account password. If this setting is disabled, the domain member attempts to change its computer account password as specified by the setting for Domain Member: Maximum age for machine account password, which by default is every 30 days.
+
+Default: Disabled.
+
+Notes
+
+This security setting should not be enabled. Computer account passwords are used to establish secure channel communications between members and domain controllers and, within the domain, between the domain controllers themselves. Once it is established, the secure channel is used to transmit sensitive information that is necessary for making authentication and authorization decisions.
+This setting should not be used in an attempt to support dual-boot scenarios that use the same computer account. If you want to dual-boot two installations that are joined to the same domain, give the two installations different computer names.",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Domain member: Maximum machine account password age,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters\MaximumPasswordAge,"Domain member: Maximum machine account password age
+
+This security setting determines how often a domain member will attempt to change its computer account password.
+
+Default: 30 days.
+
+Important
+
+This setting applies to Windows 2000 computers, but it is not available through the Security Configuration Manager tools on these computers.
+
+",No,"Important: This setting applies to Windows 2000 computers, but it is not available through the Security Configuration Manager tools on these computers. "
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Domain member: Require strong (Windows 2000 or later) session key,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters\RequireStrongKey,"Domain member: Require strong (Windows 2000 or later) session key
+
+This security setting determines whether 128-bit key strength is required for encrypted secure channel data.
+
+When a computer joins a domain, a computer account is created. After that, when the system starts, it uses the computer account password to create a secure channel with a domain controller within the domain. This secure channel is used to perform operations such as NTLM passthrough authentication, LSA SID/name Lookup, and so on.
+
+Depending on what version of Windows is running on the domain controller that the domain member is communicating with and the settings of the parameters:
+
+Domain member: Digitally encrypt or sign secure channel data (always)
+Domain member: Digitally encrypt secure channel data (when possible)
+Some or all of the information that is transmitted over the secure channel will be encrypted. This policy setting determines whether or not 128-bit key strength is required for the secure channel information that is encrypted.
+
+If this setting is enabled, then the secure channel will not be established unless 128-bit encryption can be performed. If this setting is disabled, then the key strength is negotiated with the domain controller.
+
+Default: Disabled.
+
+Important
+
+In order to take advantage of this policy on member workstations and servers, all domain controllers that constitute the member's domain must be running Windows 2000 or later.
+In order to take advantage of this policy on domain controllers, all domain controllers in the same domain as well as all trusted domains must run Windows 2000 or later.
+
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Interactive Logon: Display user information when session is locked,"At least Windows Vista, Windows Server 2008","Machine\Software\Microsoft\Windows\CurrentVersion\Policies\System, value=DontDisplayLockedUserId",Interactive Logon: Display user information when session is locked,,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Interactive logon: Do not require CTRL+ALT+DEL,"At least Windows XP SP2, Windows Server 2003",MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System\DisableCAD,"Interactive logon: Do not require CTRL+ALT+DEL
+
+This security setting determines whether pressing CTRL+ALT+DEL is required before a user can log on.
+
+If this policy is enabled on a computer, a user is not required to press CTRL+ALT+DEL to log on. Not having to press CTRL+ALT+DEL leaves users susceptible to attacks that attempt to intercept the users' passwords. Requiring CTRL+ALT+DEL before users log on ensures that users are communicating by means of a trusted path when entering their passwords.
+
+If this policy is disabled, any user is required to press CTRL+ALT+DEL before logging on to Windows (unless they are using a smart card for Windows logon).
+
+Default on domain-computers: Disabled.
+Default on stand-alone computers: Enabled.
+
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Interactive logon: Don't display last signed-in,At least Windows 10,MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System\DontDisplayLastUserName,Interactive logon: Don't display last signed in,No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Interactive logon: Don't display username at sign-in,At least Windows 10,MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System\DontDisplayLastUserName,Interactive logon: Don't display last signed in,No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Interactive logon: Machine account lockout threshold,"Windows 8, Windows Server 2012",Not a registry key,"Interactive logon: Machine account threshold.
+The machine lockout policy is enforced only on those machines that have Bitlocker enabled for protecting OS volumes. Please ensure that appropriate recovery password backup policies are enabled.
+
+This security setting determines the number of failed logon attempts that causes the machine to be locked out. A locked out machine can only be recovered by providing recovery key at console. You can set the value between 1 and 999 failed logon attempts. If you set the value to 0, the machine will never be locked out. Values from 1 to 3 will be interpreted as 4.
+
+Failed password attempts against workstations or member servers that have been locked using either CTRL+ALT+DELETE or password protected screen savers counts as failed logon attempts.
+
+The machine lockout policy is enforced only on those machines that have Bitlocker enabled for protecting OS volumes. Please ensure that the appropriate recovery password backup policies are enabled.
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Interactive logon: Machine inactivity limit,"Windows 8, Windows Server 2012",Not a registry key,"Interactive logon: Machine inactivity limit.
+
+Windows notices inactivity of a logon session, and if the amount of inactive time exceeds the inactivity limit, then the screen saver will run, locking the session.
+
+Default: not enforced.
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Interactive logon: Message text for users attempting to logon,"At least Windows XP SP2, Windows Server 2003",MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System\LegalNoticeText,"Interactive logon: Message text for users attempting to log on
+
+This security setting specifies a text message that is displayed to users when they log on.
+
+This text is often used for legal reasons, for example, to warn users about the ramifications of misusing company information or to warn them that their actions may be audited.
+
+Default: No message.
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Interactive logon: Message title for users attempting to logon,"At least Windows XP SP2, Windows Server 2003",MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System\LegalNoticeCaption,"Interactive logon: Message title for users attempting to log on
+
+This security setting allows the specification of a title to appear in the title bar of the window that contains the Interactive logon: Message text for users attempting to log on.
+
+Default: No message.
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Interactive logon: Number of previous logons to cache (in case domain controller is not available),"At least Windows XP SP2, Windows Server 2003",MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\CachedLogonsCount ,"Interactive logon: Number of previous logons to cache (in case domain controller is not available)
+
+All previous users' logon information is cached locally so that, in the event that a domain controller is unavailable during subsequent logon attempts, they are able to log on . If a domain controller is unavailable and a user's logon information is cached, the user is prompted with a message that reads as follows:
+
+Windows cannot connect to a server to confirm your logon settings. You have been logged on using previously stored account information. If you changed your account information since you last logged on to this computer, those changes will not be reflected in this session.
+
+If a domain controller is unavailable and a user's logon information is not cached, the user is prompted with this message:
+
+The system cannot log you on now because the domain <DOMAIN_NAME> is not available.
+
+In this policy setting, a value of 0 disables logon caching. Any value above 50 only caches 50 logon attempts.
+
+Default: 25
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Interactive logon: Prompt user to change password before expiration,"At least Windows XP SP2, Windows Server 2003",MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\PasswordExpiryWarning,"Interactive logon: Prompt user to change password before expiration
+
+Determines how far in advance (in days) users are warned that their password is about to expire. With this advance warning, the user has time to construct a password that is sufficiently strong.
+
+Default: 14 days.
+
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Interactive logon: Require Domain Controller authentication to unlock workstation,"At least Windows XP SP2, Windows Server 2003",MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\ForceUnlockLogon,"Interactive logon: Require Domain Controller authentication to unlock
+
+Logon information must be provided to unlock a locked computer. For domain accounts, this security setting determines whether a domain controller must be contacted to unlock a computer. If this setting is disabled, a user can unlock the computer using cached credentials. If this setting is enabled, a domain controller must authenticate the domain account that is being used to unlock the computer.
+
+Default: Disabled.
+
+Important
+
+This setting applies to Windows 2000 computers, but it is not available through the Security Configuration Manager tools on these computers.
+
+",No,"Important: This setting applies to Windows 2000 computers, but it is not available through the Security Configuration Manager tools on these computers."
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Interactive logon: Require smart card,"At least Windows XP SP2, Windows Server 2003",MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System\ScForceOption,"Interactive logon: Require smart card
+
+This security setting requires users to log on to a computer using a smart card.
+
+The options are:
+
+Enabled: Users can only log on to the computer using a smart card.
+Disabled. Users can log on to the computer using any method.
+Default: Disabled.
+
+Important
+
+This setting will apply to any computers running Windows 2000 through changes in the registry, but the security setting is not viewable through the Security Configuration Manager tool set.
+
+",No,"Important: This setting will apply to any computers running Windows 2000 through changes in the registry, but the security setting is not viewable through the Security Configuration Manager tool set."
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Interactive logon: Smart card removal behavior,"At least Windows XP SP2, Windows Server 2003",MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\ScRemoveOption,"Interactive logon: Smart card removal behavior
+
+This security setting determines what happens when the smart card for a logged-on user is removed from the smart card reader.
+
+The options are:
+
+¨° No Action
+¨° Lock Workstation
+¨° Force Logoff
+¨° Disconnect if a Remote Desktop Services session
+
+If you click Lock Workstation in the Properties dialog box for this policy, the workstation is locked when the smart card is removed, allowing users to leave the area, take their smart card with them, and still maintain a protected s",No,"Only LogOff is required for W2K, XP and W2K3 computers.  In Vista, start/restart the scpolicysvc will work or LogOff"
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Microsoft network client: Digitally sign communications (always),"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Services\LanmanWorkstation\Parameters\RequireSecuritySignature,"Microsoft network client: Digitally sign communications (always)
+
+This security setting determines whether packet signing is required by the SMB client component.
+
+The server message block (SMB) protocol provides the basis for Microsoft file and print sharing and many other networking operations, such as remote Windows administration. To prevent man-in-the-middle attacks that modify SMB packets in transit, the SMB protocol supports the digital signing of SMB packets. This policy setting determines whether SMB packet signing must be negotiated before further communication with an SMB server is permitted.
+
+If this setting is enabled, the Microsoft network client will not communicate with a Microsoft network server unless that server agrees to perform SMB packet signing. If this policy is disabled, SMB packet signing is negotiated between the client and server.
+
+Default: Disabled.
+
+Important
+
+For this policy to take effect on computers running Windows 2000, client-side packet signing must also be enabled. To enable client-side SMB packet signing, set Microsoft network client: Digitally sign communications (if server agrees).
+Computers that have this policy set will not be able to communicate with computers that do not have server-side packet signing enabled. By default, server-side packet signing is enabled only on domain controllers running Windows 2000 and later.
+Server-side packet signing can be enabled on computers running Windows 2000 and later by setting Microsoft network server: Digitally sign communications (if client agrees)
+Server-side packet signing can be enabled on computers running Windows NT 4.0 Service Pack 3 and later by setting the following registry value to 1:
+HKLM\System\CurrentControlSet\Services\LanManServer\Parameters\EnableSecuritySignature
+
+Server-side packet signing cannot be enabled on computers running Windows 95 or Windows 98.
+
+Notes
+
+All Windows operating systems support both a client-side SMB component and a server-side SMB component. To take advantage of SMB packet signing, both the client-side SMB component and server-side SMB component that are involved in a communication must have SMB packet signing either enabled or required. On Windows 2000 and later operating systems, enabling or requiring packet signing for client and server-side SMB components is controlled by the following four policy settings:
+Microsoft network client: Digitally sign communications (always) - Controls whether or not the client-side SMB component requires packet signing.
+Microsoft network client: Digitally sign communications (if server agrees) - Controls whether or not the client-side SMB component has packet signing enabled.
+Microsoft network server: Digitally sign communications (always) - Controls whether or not the server-side SMB component requires packet signing.
+Microsoft network server: Digitally sign communications (if client agrees) - Controls whether or not the server-side SMB component has packet signing enabled.
+If server-side SMB signing is required, a client will not be able to establish a session with that server, unless it has client-side SMB signing enabled. By default, client-side SMB signing is enabled on workstations, servers, and domain controllers. Similarly, if client-side SMB signing is required, that client will not be able to establish a session with servers that do not have packet signing enabled. By default, server-side SMB signing is enabled only on domain controllers.
+If server-side SMB signing is enabled, SMB packet signing will be negotiated with clients that have client-side SMB signing enabled.
+Using SMB packet signing can impose up to a 15 percent performance hit on file service transactions.
+
+",Yes,"Important: For this policy to take effect on computers running Windows 2000, client-side packet signing must also be enabled. For more information, search for ""Security Settings Descriptions"" in the Windows Server 2003 Help."
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Microsoft network client: Digitally sign communications (if server agrees) ,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Services\LanmanWorkstation\Parameters\EnableSecuritySignature,"Microsoft network client: Digitally sign communications (if server agrees)
+
+This security setting determines whether the SMB client attempts to negotiate SMB packet signing.
+
+The server message block (SMB) protocol provides the basis for Microsoft file and print sharing and many other networking operations, such as remote Windows administration. To prevent man-in-the-middle attacks that modify SMB packets in transit, the SMB protocol supports the digital signing of SMB packets. This policy setting determines whether the SMB client component attempts to negotiate SMB packet signing when it connects to an SMB server.
+
+If this setting is enabled, the Microsoft network client will ask the server to perform SMB packet signing upon session setup. If packet signing has been enabled on the server, packet signing will be negotiated. If this policy is disabled, the SMB client will never negotiate SMB packet signing.
+
+Default: Enabled.
+
+Notes
+
+All Windows operating systems support both a client-side SMB component and a server-side SMB component. To take advantage of SMB packet signing, both the client-side SMB component and server-side SMB component that are involved in a communication must have SMB packet signing either enabled or required. On Windows 2000 and later, enabling or requiring packet signing for client and server-side SMB components is controlled by the following four policy settings:
+Microsoft network client: Digitally sign communications (always) - Controls whether or not the client-side SMB component requires packet signing.
+Microsoft network client: Digitally sign communications (if server agrees) - Controls whether or not the client-side SMB component has packet signing enabled.
+Microsoft network server: Digitally sign communications (always) - Controls whether or not the server-side SMB component requires packet signing.
+Microsoft network server: Digitally sign communications (if client agrees) - Controls whether or not the server-side SMB component has packet signing enabled.
+If server-side SMB signing is required, a client will not be able to establish a session with that server unless it has client-side SMB signing enabled. By default, client-side SMB signing is enabled on workstations, servers, and domain controllers.
+Similarly, if client-side SMB signing is required, that client will not be able to establish a session with servers that do not have packet signing enabled. By default, server-side SMB signing is enabled only on domain controllers.
+If server-side SMB signing is enabled, SMB packet signing will be negotiated with clients that have client-side SMB signing enabled.
+Using SMB packet signing can degrade performance up to 15 percent on file service transactions.
+
+",Yes,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Microsoft network client: Send unencrypted password to third-party SMB servers,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Services\LanmanWorkstation\Parameters\EnablePlainTextPassword,"Microsoft network client: Send unencrypted password to connect to third-party SMB servers
+
+If this security setting is enabled, the Server Message Block (SMB) redirector is allowed to send plaintext passwords to non-Microsoft SMB servers that do not support password encryption during authentication.
+
+Sending unencrypted passwords is a security risk.
+
+Default: Disabled.",Yes,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Microsoft network server: Amount of idle time required before suspending session,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Services\LanManServer\Parameters\AutoDisconnect,"Microsoft network server: Amount of idle time required before suspending a session
+
+This security setting determines the amount of continuous idle time that must pass in a Server Message Block (SMB) session before the session is suspended due to inactivity.
+
+Administrators can use this policy to control when a computer suspends an inactive SMB session. If client activity resumes, the session is automatically reestablished.
+
+For this policy setting, a value of 0 means to disconnect an idle session as quickly as is reasonably possible. The maximum value is 99999, which is 208 days; in effect, this value disables the policy.
+
+Default:This policy is not defined, which means that the system treats it as 15 minutes for servers and undefined for workstations.
+
+",Yes,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Microsoft network server: Attempt S4U2Self to obtain claim information,"Windows 8, Windows Server 2012",Not a registry key,"Microsoft network server: Attempt S4U2Self to obtain claim information
+
+This security setting is to support clients running a version of Windows prior to Windows 8 Consumer Preview that are trying to access a file share that requires user claims. This setting determines whether the local file server will attempt to use Kerberos Service-For-User-To-Self (S4U2Self) functionality to obtain a network client principal¡¯s claims from the client¡¯s account domain. This setting should only be set to enabled if the file server is using user claims to control access to files, and if the file server will support client principals whose accounts may be in a domain which has client computers and domain controllers running a version of Windows prior to Windows 8 Consumer Preview.
+
+This setting should be set to automatic (default) so that the file server can automatically evaluate whether claims are needed for the user. An administrator would want to set this setting explicitly to ¡°Enabled¡± only if there are local file access policies that include user claims.
+
+When enabled this security setting will cause the Windows file server to examine the access token of an au",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Microsoft network server: Digitally sign communications (always),"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Services\LanManServer\Parameters\RequireSecuritySignature,"Microsoft network server: Digitally sign communications (always)
+
+This security setting determines whether packet signing is required by the SMB server component.
+
+The server message block (SMB) protocol provides the basis for Microsoft file and print sharing and many other networking operations, such as remote Windows administration. To prevent ""man-in-the-middle"" attacks that modify SMB packets in transit, the SMB protocol supports the digital signing of SMB packets. This policy setting determines whether SMB packet signing must be negotiated before further communication with an SMB client is permitted.
+
+If this setting is enabled, the Microsoft network server will not communicate with a Microsoft network client unless that client agrees to perform SMB packet signing. If this setting is disabled, SMB packet signing is negotiated between the client and server.
+
+Default:
+
+Disabled for member servers.
+Enabled for domain controllers.
+
+Notes
+
+All Windows operating systems support both a client-side SMB component and a server-side SMB component. To take advantage of SMB packet signing, both the client-side SMB component and server-side SMB component that are involved in a communication must have SMB packet signing either enabled or required. On Windows 2000 and later, enabling or requiring packet signing for client and server-side SMB components is controlled by the following four policy settings:
+Microsoft network client: Digitally sign communications (always) - Controls whether or not the client-side SMB component requires packet signing.
+Microsoft network client: Digitally sign communications (if server agrees) - Controls whether or not the client-side SMB component has packet signing enabled.
+Microsoft network server: Digitally sign communications (always) - Controls whether or not the server-side SMB component requires packet signing.
+Microsoft network server: Digitally sign communications (if client agrees) - Controls whether or not the server-side SMB component has packet signing enabled.
+If server-side SMB signing is required, a client will not be able to establish a session with that server unless it has client-side SMB signing enabled. By default, client-side SMB signing is enabled on workstations, servers, and domain controllers.
+Similarly, if client-side SMB signing is required, that client will not be able to establish a session with servers that do not have packet signing enabled. By default, server-side SMB signing is enabled only on domain controllers.
+If server-side SMB signing is enabled, SMB packet signing will be negotiated with clients that have client-side SMB signing enabled.
+Using SMB packet signing can degrade performance up to 15 percent on file service transactions.
+
+Important
+
+For this policy to take effect on computers running Windows 2000, server-side packet signing must also be enabled. To enable server-side SMB packet signing, set the following policy:
+Microsoft network server: Digitally sign communications (if server agrees)
+
+For Windows 2000 servers to negotiate signing with Windows NT 4.0 clients, the following registry value must be set to 1 on the Windows 2000 server:
+HKLM\System\CurrentControlSet\Services\lanmanserver\parameters\enableW9xsecuritysignature
+
+Computers that have this policy set will not communicate with computers that do not have client-side packet signing enabled. Client-side packet signing can be enabled on computers running Windows 2000 and later by setting the following policy:
+
+",Yes,"Important: For this policy to take effect on computers running Windows 2000, server-side packet signing must also be enabled. For more information, search for ""Security Settings Descriptions"" in the Windows Server 2003 Help."
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Microsoft network server: Digitally sign communications (if client agrees),"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Services\LanManServer\Parameters\EnableSecuritySignature,"Microsoft network server: Digitally sign communications (if client agrees)
+
+This security setting determines whether the SMB server will negotiate SMB packet signing with clients that request it.
+
+The server message block (SMB) protocol provides the basis for Microsoft file and print sharing and many other networking operations, such as remote Windows administration. To prevent man-in-the-middle attacks that modify SMB packets in transit, the SMB protocol supports the digital signing of SMB packets. This policy setting determines whether the SMB server will negotiate SMB packet signing when an SMB client requests it.
+
+If this setting is enabled, the Microsoft network server will negotiate SMB packet signing as requested by the client. That is, if packet signing has been enabled on the client, packet signing will be negotiated. If this policy is disabled, the SMB client will never negotiate SMB packet signing.
+
+Default: Enabled on domain controllers only.
+
+Important
+
+For Windows 2000 servers to negotiate signing with Windows NT 4.0 clients, the following registry value must be set to 1 on the server running Windows 2000: HKLM\System\CurrentControlSet\Services\lanmanserver\parameters\enableW9xsecuritysignature
+
+Notes
+
+All Windows operating systems support both a client-side SMB component and a server-side SMB component. To take advantage of SMB packet signing, both the client-side SMB component and server-side SMB component that are involved in a communication must have SMB packet signing either enabled or required. For Windows 2000 and above, enabling or requiring packet signing for client and server-side SMB components is controlled by the following four policy settings:
+Microsoft network client: Digitally sign communications (always) - Controls whether or not the client-side SMB component requires packet signing.
+Microsoft network client: Digitally sign communications (if server agrees) - Controls whether or not the client-side SMB component has packet signing enabled.
+Microsoft network server: Digitally sign communications (always) - Controls whether or not the server-side SMB component requires packet signing.
+Microsoft network server: Digitally sign communications (if client agrees) - Controls whether or not the server-side SMB component has packet signing enabled.
+If server-side SMB signing is required, a client will not be able to establish a session with that server unless it has client-side SMB signing enabled. By default, client-side SMB signing is enabled on workstations, servers, and domain controllers.
+Similarly, if client-side SMB signing is required, that client will not be able to establish a session with servers that do not have packet signing enabled. By default, server-side SMB signing is enabled only on domain controllers.
+If server-side SMB signing is enabled, SMB packet signing will be negotiated with clients that have client-side SMB signing enabled.
+Using SMB packet signing can impose up to a 15 percent performance hit on file service transactions.
+
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Microsoft network server: Disconnect clients when logon hours expire,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Services\LanManServer\Parameters\EnableForcedLogOff,"Microsoft network server: Disconnect clients when logon hours expire
+
+This security setting determines whether to disconnect users who are connected to the local computer outside their user account's valid logon hours. This setting affects the Server Message Block (SMB) component.
+
+When this policy is enabled, it causes client sessions with the SMB Service to be forcibly disconnected when the client's logon hours expire.
+
+If this policy is disabled, an established client session is allowed to be maintained after the client's logon hours have expired.
+
+Default on Windows Vista: Enabled.
+Default on Windows XP: Disabled
+
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Microsoft network server: Server SPN target name validation level,"At least Windows 7, Windows Server 2008 R2",MACHINE\System\CurrentControlSet\Services\LanManServer\Parameters\SmbServerNameHardeningLevel,"Microsoft network server: Server SPN target name validation level
+ 
+The server message block (SMB) protocol provides the basis for file and printer sharing and many other networking operations, such as remote Windows administration. The SMB protocol supports validating the SMB server service principal name (SPN) within the authentication blob provided by a SMB client to  prevent a class of attacks against SMB servers referred to as SMB relay attacks.  This setting will affect both SMB1 and SMB2.
+ 
+This security setting determines the level of validation a SMB server performs on the service principal name (SPN) provided by the SMB client when trying to establish a session to an SMB server.
+ 
+The options are:
+ 
+No validation - validation of the SPN will not be performed by the SMB server.
+ 
+Validate if provided by client - the SMB server will validate the SPN provided by the SMB client and allow a session to be established if it matches the SMB server¡¯s list of SPN¡¯s for itself.  If the SPN does NOT match, the session request for that SMB client will be denied.
+ 
+Require match from client - the SMB client MUST send a SPN name in session setup, and the SPN name provided MUST match the SMB server that is being requested to establish a connection.  If no SPN is provided by client, or the SPN provided does not match, the session is denied.
+ 
+Default: No validation
+ 
+All Windows operating systems support both a client-side SMB component and a server-side SMB component. This setting affects the server SMB behavior, and its implementation should be carefully evaluated and tested to prevent disruptions to file and print serving capabilities. Additional information on implementing and using this to secure your SMB se""r",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Network access: Allow anonymous SID/Name translation,"At least Windows XP SP2, Windows Server 2003",Not a registry key,"Network access: Allow anonymous SID/name translation
+
+This security setting determines if an anonymous user can request security identifier (SID) attributes for another user.
+
+If this policy is enabled, a user with knowledge of an administrator's SID could contact a computer that has this policy enabled and use the SID to get the administrator's name.
+
+Default on workstations and member servers: Disabled.
+Default on domain controllers: Enabled.
+
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Network access: Do not allow anonymous enumeration of SAM accounts,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Control\Lsa\RestrictAnonymousSAM,"Network access: Do not allow anonymous enumeration of SAM accounts
+
+This security setting determines what additional permissions will be granted for anonymous connections to the computer.
+
+Windows allows anonymous users to perform certain activities, such as enumerating the names of domain accounts and network shares. This is convenient, for example, when an administrator wants to grant access to users in a trusted domain that does not maintain a reciprocal trust.
+
+This security option allows additional restrictions to be placed on anonymous connections as follows:
+
+Enabled: Do not allow enumeration of SAM accounts. This option replaces Everyone with Authenticated Users in the security permissions for resources.
+Disabled: No additional restrictions. Rely on default permissions.
+
+Default on workstations: Enabled.
+Default on server:Disabled.
+
+Important
+
+This policy has no impact on domain controllers.
+
+",No,"Important: This policy has no impact on domain controllers. For more information, search for ""Security Settings Descriptions"" in the Windows Server 2003 Help."
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Network access: Do not allow anonymous enumeration of SAM accounts and shares,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Control\Lsa\RestrictAnonymous,"Network access: Do not allow anonymous enumeration of SAM accounts and shares
+
+This security setting determines whether anonymous enumeration of SAM accounts and shares is allowed.
+
+Windows allows anonymous users to perform certain activities, such as enumerating the names of domain accounts and network shares. This is convenient, for example, when an administrator wants to grant access to users in a trusted domain that does not maintain a reciprocal trust. If you do not want to allow anonymous enumeration of SAM accounts and shares, then enable this policy.
+
+Default: Disabled.
+
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Network access: Do not allow storage of passwords and credentials for network authentication,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Control\Lsa\DisableDomainCreds,"Network access: Do not allow storage of credentials or .NET Passports for network authentication
+
+This security setting determines whether Stored User Names and Passwords saves passwords, credentials, or .NET Passports for later use when it gains domain authentication.
+
+If it is enabled, this setting prevents the Stored User Names and Passwords from storing passwords and credentials.
+
+Note: When configuring this security setting, changes will not take effect until you restart Windows.
+For more information about Stored User Names and Passwords, see Stored User Names and Passwords.
+
+Default: Disabled.
+
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Network access: Let Everyone permissions apply to anonymous users,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Control\Lsa\EveryoneIncludesAnonymous,"Network access: Let Everyone permissions apply to anonymous users
+
+This security setting determines what additional permissions are granted for anonymous connections to the computer.
+
+Windows allows anonymous users to perform certain activities, such as enumerating the names of domain accounts and network shares. This is convenient, for example, when an administrator wants to grant access to users in a trusted domain that does not maintain a reciprocal trust. By Default, the Everyone security identifier (SID) is removed from the token created for anonymous connections. Therefore, permissions granted to the Everyone group do not apply to anonymous users. If this option is set, anonymous users can only access those resources for which the anonymous user has been explicitly given permission.
+
+If this policy is enabled, the Everyone SID is added to the token that is created for anonymous connections. In this case, anonymous users are able to access any resource for which the Everyone group has been given permissions.
+
+Default: Disabled.
+
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Network access: Named Pipes that can be accessed anonymously,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Services\LanManServer\Parameters\NullSessionPipes,"Network access: Named pipes that can be accessed anonymously
+
+This security setting determines which communication sessions (pipes) will have attributes and permissions that allow anonymous access.
+
+Default: None.
+
+",Yes,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Network access: Remotely accessible registry paths,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Control\SecurePipeServers\Winreg\AllowedPaths\Machine,"Network access: Remotely accessible registry paths
+
+This security setting determines which registry keys can be accessed over the network, regardless of the users or groups listed in the access control list (ACL) of the winreg registry key.
+
+Default:
+
+System\\CurrentControlSet\\Control\\ProductOptions
+System\\CurrentControlSet\\Control\\Server Applications
+Software\\Microsoft\\Windows NT\\CurrentVersion
+
+Caution
+
+Incorrectly editing the registry may severely damage your system. Before making changes to the registry, you should back up any valued data on the computer.
+ Note: This security setting is not available on earlier versions of Windows. The security setting that appears on computers running Windows XP, ""Network access: Remotely accessible registry paths"" corresponds to the ""Network access: Remotely accessible registry paths and subpaths"" security option on members of the Windows Server 2003 family. For more information, see Network access: Remotely accessible registry paths and subpaths.
+Default:
+
+System\CurrentControlSet\Control\ProductOptions
+System\CurrentControlSet\Control\Server Applications
+Software\Microsoft\Windows NT\CurrentVersion",No,Important: The Network access: Remotely accessible registry paths security setting that appears on computers running Windows XP corresponds to the Network access: Remotely accessible registry paths and subpaths security policy setting on members of the Wi
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Network access: Remotely accessible registry paths and sub-paths,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Control\SecurePipeServers\Winreg\AllowedPaths\Machine,"Network access: Remotely accessible registry paths and subpaths
+
+This security setting determines which registry paths and subpaths can be accessed over the network, regardless of the users or groups listed in the access control list (ACL) of the winreg registry key.
+
+Default:
+
+System\\CurrentControlSet\\Control\\Print\\Printers
+System\\CurrentControlSet\\Services\\Eventlog
+Software\\Microsoft\\OLAP Server
+Software\\Microsoft\\Windows NT\\CurrentVersion\\Print
+Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows
+System\\CurrentControlSet\\Control\\ContentIndex
+System\\CurrentControlSet\\Control\\Terminal Server
+System\\CurrentControlSet\\Control\\Terminal Server\\UserConfig
+System\\CurrentControlSet\\Control\\Terminal Server\\DefaultUserConfiguration
+Software\\Microsoft\\Windows NT\\CurrentVersion\\Perflib
+System\\CurrentControlSet\\Services\\SysmonLog
+System\\CurrentControlSet\\Services\\CertSvc
+System\\CurrentControlSet\\Services\\Wins
+
+Caution
+
+Incorrectly editing the registry may severely damage your system. Before making changes to the registry, you should back up any valued data on the computer.
+
+Note: On Windows XP, this security setting was called ""Network access: Remotely accessible registry paths."" If you configure this setting on a member of the Windows Server 2003 family that is joined to a domain, this setting is inherited by computers running Windows XP, but will appear as the ""Network access: Remotely accessible registry paths"" security option. For more information, see Network access: Remotely accessible registry paths and subpaths.
+",No,"Important: On Windows XP, this security setting was called ""Network access: Remotely accessible registry paths."" If you configure this setting on a member of the Windows Server 2003 family that is joined to a domain, this setting is inherited by computers"
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Network access: Restrict anonymous access to Named Pipes and Shares,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Services\LanManServer\Parameters\NullSessionShares,"Network access: Restrict anonymous access to Named Pipes and Shares
+
+When enabled, this security setting restricts anonymous access to shares and pipes to the settings for:
+
+Network access: Named pipes that can be accessed anonymously
+Network access: Shares that can be accessed anonymously
+Default: Enabled.
+
+",Yes,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Network access: Shares that can be accessed anonymously,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Services\LanManServer\Parameters\NullSessionShares ,"Network access: Shares that can be accessed anonymously
+
+This security setting determines which network shares can accessed by anonymous users.
+
+Default: None specified.
+
+",Yes,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Network access: Sharing and security model for local accounts,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Control\Lsa\ForceGuest,"Network access: Sharing and security model for local accounts
+
+This security setting determines how network logons that use local accounts are authenticated. If this setting is set to Classic, network logons that use local account credentials authenticate by using those credentials. The Classic model allows fine control over access to resources. By using the Classic model, you can grant different types of access to different users for the same resource.
+
+If this setting is set to Guest only, network logons that use local accounts are automatically mapped to the Guest account. By using the Guest model, you can have all users treated equally. All users authenticate as Guest, and they all receive the same level of access to a given resource, which can be either Read-only or Modify.
+
+Default on domain computers: Classic.
+Default on stand-alone computers: Guest only
+
+Important
+
+With the Guest only model, any user who can access your computer over the network (including anonymous Internet users) can access your shared resources. You must use the Windows Firewall or another similar device to protect your computer from unauthorized access. Similarly, with the Classic model, local accounts must be password protected; otherwise, those user accounts can be used by anyone to access shared system resources.
+
+Note:
+
+This setting does not affect interactive logons that are performed remotely by using such services as Telnet or Remote Desktop Services.  Remote Desktop Services was called Terminal Services in previous versions of Windows Server.
+
+This policy will have no impact on computers running Windows 2000.
+When the computer is not joined to a domain, this setting also modifies the Sharing and Security tabs in Windows Explorer to correspond to the sharing and security model that is being used.",No,"Important: This setting only affects computers running Windows XP Professional which are not joined to a domain.
+This policy will have no impact on computers running Windows 2000. For more information, search for ""Security Setting Descriptions"" in the Win"
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Network security: Do not store LAN Manager hash value on next password change,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Control\Lsa\NoLMHash,"Network security: Do not store LAN Manager hash value on next password change
+
+This security setting determines if, at the next password change, the LAN Manager (LM) hash value for the new password is stored. The LM hash is relatively weak and prone to attack, as compared with the cryptographically stronger Windows NT hash. Since the LM hash is stored on the local computer in the security database the passwords can be compromised if the security database is attacked.
+
+
+Default on Windows Vista: Enabled
+Default on Windows XP: Disabled.
+
+Important
+
+Windows 2000 Service Pack 2 (SP2) and above offer compatibility with authentication to previous versions of Windows, such as Microsoft Windows NT 4.0.
+This setting can affect the ability of computers running Windows 2000 Server, Windows 2000 Professional, Windows XP, and the Windows Server 2003 family to communicate with computers running Windows 95 and Windows 98.
+
+",No,"Important: Windows 2000 Service Pack 2 (SP2) and above offer compatibility with authentication to previous versions of Windows, such as Microsoft Windows NT 4.0.
+This setting can affect the ability of computers running Windows 2000 Server, Windows 2000 Pr"
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Network security: Force logoff when logon hours expire,"At least Windows XP SP2, Windows Server 2003",Not a registry key,"Network security: Force logoff when logon hours expire
+
+This security setting determines whether to disconnect users who are connected to the local computer outside their user account's valid logon hours. This setting affects the Server Message Block (SMB) component.
+
+When this policy is enabled, it causes client sessions with the SMB server to be forcibly disconnected when the client's logon hours expire.
+
+If this policy is disabled, an established client session is allowed to be maintained after the client's logon hours have expired.
+
+Default: Enabled.
+
+Note: This security setting behaves as an account policy. For domain accounts, there can be only one account policy. The account policy must be defined in the Default Domain Policy, and it is enforced by the domain controllers that make up the domain. A domain controller always pulls the account policy from the Default Domain Policy Group Policy object (GPO), even if there is a different account policy applied to the organizational unit that contains the domain controller. By default, workstations and servers that are joined to a domain (for example, member computers) also receive the same account policy for their local accounts. However, local account policies for member computers can be different from the domain account policy by defining an account policy for the organizational unit that contains the member computers. Kerberos settings are not applied to member computers.
+
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Network security: LAN Manager authentication level,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Control\Lsa\LmCompatibilityLevel,"Network security: LAN Manager authentication level
+ 
+This security setting determines which challenge/response authentication protocol is used for network logons. This choice affects the level of authentication protocol used by clients, the level of session security negotiated, and the level of authentication accepted by servers as follows:
+ 
+Send LM & NTLM responses: Clients use LM and NTLM authentication and never use NTLMv2 session security; domain controllers accept LM, NTLM, and NTLMv2 authentication.
+Send LM & NTLM - use NTLMv2 session security if negotiated: Clients use LM and NTLM authentication and use NTLMv2 session security if the server supports it; domain controllers accept LM, NTLM, and NTLMv2 authentication.
+Send NTLM response only: Clients use NTLM authentication only and use NTLMv2 session security if the server supports it; domain controllers accept LM, NTLM, and NTLMv2 authentication.
+Send NTLMv2 response only: Clients use NTLMv2 authentication only and use NTLMv2 session security if the server supports it; domain controllers accept LM, NTLM, and NTLMv2 authentication.
+Send NTLMv2 response only\\refuse LM: Clients use NTLMv2 authentication only and use NTLMv2 session security if the server supports it; domain controllers refuse LM (accept only NTLM and NTLMv2 authentication).
+Send NTLMv2 response only\\refuse LM & NTLM: Clients use NTLMv2 authentication only and use NTLMv2 session security if the server supports it; domain controllers refuse LM and NTLM (accept only NTLMv2 authentication).
+
+Important
+
+This setting can affect the ability of computers running Windows 2000 Server, Windows 2000 Professional, Windows XP Professional, and the Windows Server 2003 family to communicate with computers running Windows NT 4.0 and earlier over the network. For example, at the time of this writing, computers running Windows NT 4.0 SP4 and earlier did not support NTLMv2. Computers running Windows 95 and Windows 98 did not support NTLM.
+
+Default:
+ 
+Windows 2000 and windows XP ""send LM & NTLM responses on server""
+Windows Server 2003: Send NTLM response only
+Windows Vista and Windows Server 2008: Send NTLMv2 response only",No,"Important: This setting can affect the ability of computers running Windows 2000 Server, Windows 2000 Professional, Windows XP Professional, and the Windows Server 2003 family to communicate with computers running Windows NT 4.0 and earlier over the netwo"
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Network security: LDAP client signing requirements,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Services\LDAP\LDAPClientIntegrity,"Network security: LDAP client signing requirements
+
+This security setting determines the level of data signing that is requested on behalf of clients issuing LDAP BIND requests, as follows:
+
+None: The LDAP BIND request is issued with the options that are specified by the caller.
+Negotiate signing: If Transport Layer Security/Secure Sockets Layer (TLS\SSL) has not been started, the LDAP BIND request is initiated with the LDAP data signing option set in addition to the options specified by the caller. If TLS\SSL has been started, the LDAP BIND request is initiated with the options that are specified by the caller.
+Require signature: This is the same as Negotiate signing. However, if the LDAP server's intermediate saslBindInProgress response does not indicate that LDAP traffic signing is required, the caller is told that the LDAP BIND command request failed.
+
+Caution
+
+If you set the server to Require signature, you must also set the client. Not setting the client results in a loss of connection with the server.
+
+Note: This setting does not have any impact on ldap_simple_bind or ldap_simple_bind_s. No Microsoft LDAP clients that are shipped with Windows XP Professional use ldap_simple_bind or ldap_simple_bind_s to talk to a domain controller.
+
+Default: Negotiate signing.
+
+",Yes,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Network security: Minimum session security for NTLM SSP based (including secure RPC) clients,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Control\Lsa\MSV1_0\NTLMMinClientSec,"Network security: Minimum session security for NTLM SSP based (including secure RPC) clients
+
+This security setting allows a client to require the negotiation of 128-bit encryption and/or NTLMv2 session security. These values are dependent on the LAN Manager Authentication Level security setting value. The options are:
+
+Require NTLMv2 session security: The connection will fail if NTLMv2 protocol is not negotiated.
+Require 128-bit encryption: The connection will fail if strong encryption (128-bit) is not negotiated.
+
+Default: No requirements.
+
+",No,"Warning: This setting will apply to any computers running Windows 2000 through changes in the registry but the security setting will not be viewable through the Security Configuration Manager tool set. For more information, search for ""Security Setting De"
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Network security: Minimum session security for NTLM SSP based (including secure RPC) servers,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Control\Lsa\MSV1_0\NTLMMinServerSec,"Network security: Minimum session security for NTLM SSP based (including secure RPC) servers
+
+This security setting allows a server to require the negotiation of 128-bit encryption and/or NTLMv2 session security. These values are dependent on the LAN Manager Authentication Level security setting value. The options are:
+
+Require NTLMv2 session security: The connection will fail if message integrity is not negotiated.
+Require 128-bit encryption. The connection will fail if strong encryption (128-bit) is not negotiated.
+
+Default: No requirements.
+
+",No,"Warning: This setting will apply to any computers running Windows 2000 through changes in the registry but the security setting will not be viewable through the Security Configuration Manager tool set. For more information, search for ""Security Setting De"
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Network security: Restrict NTLM: Outgoing NTLM traffic to remote servers,"At least Windows 7, Windows Server 2008 R2",MACHINE\System\CurrentControlSet\Control\Lsa\MSV1_0\RestrictSendingNTLMTraffic,"Network security: Restrict NTLM: Outgoing NTLM traffic to remote servers
+
+This policy setting allows you to deny or audit outgoing NTLM traffic from this Windows 7 or this Windows Server 2008 R2 computer to any Windows remote server.
+
+If you select ""Allow all"" or do not configure this policy setting, the client computer can authenticate identities to a remote server by using NTLM authentication.
+
+If you select ""Audit all,"" the client computer logs an event for each NTLM authentication request to a remote server. This allows you to identify those servers receiving NTLM authentication requests from the client computer.
+
+If you select ""Deny all,"" the client computer cannot authenticate identities to a remote server by using NTLM authentication. You can use the ""Network security: Restrict NTLM: Add remote server exceptions for NTLM authentication"" policy setting to define a list of remote servers to which clients are allowed to use NTLM authentication.
+
+This policy is supported on at least Windows 7 or Windows Server 2008 R2.
+
+Note: Audit and block events are recorded on this computer in the ""NTLMBlock"" Log located under the Applications and Services Log/Microsoft/Windows/Security-NTLM.",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Network security: Restrict NTLM: Incoming NTLM traffic,"At least Windows 7, Windows Server 2008 R2",MACHINE\System\CurrentControlSet\Control\Lsa\MSV1_0\RestrictReceivingNTLMTraffic,"Network security: Restrict NTLM: Incoming NTLM traffic
+
+This policy setting allows you to deny or allow incoming NTLM traffic.
+
+If you select ""Allow all"" or do not configure this policy setting, the server will allow all NTLM authentication requests.
+
+If you select ""Deny all domain accounts,"" the server will deny NTLM authentication requests for domain logon and display an NTLM blocked error, but allow local account logon.
+
+If you select ""Deny all accounts,"" the server will deny NTLM authentication requests from incoming traffic and display an NTLM blocked error.
+
+This policy is supported on at least Windows 7 or Windows Server 2008 R2.
+
+Note: Block events are recorded on this computer in the ""NTLMBlock"" Log located under the Applications and Services Log/Microsoft/Windows/Security-NTLM.",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Network security: Restrict NTLM: Audit Incoming NTLM Traffic,"At least Windows 7, Windows Server 2008 R2",MACHINE\System\CurrentControlSet\Control\Lsa\MSV1_0\AuditReceivingNTLMTraffic,"Network security: Restrict NTLM: Audit Incoming NTLM Traffic
+
+This policy setting allows you to audit incoming NTLM traffic.
+
+If you select ""Disable"", or do not configure this policy setting, the server will not log events for incoming NTLM traffic.
+
+If you select ""Enable auditing for domain accounts"", the server will log events for NTLM pass-through authentication requests that would be blocked when the ""Network Security: Restrict NTLM: Incoming NTLM traffic"" policy setting is set to the ""Deny all domain accounts"" option.
+
+If you select ""Enable auditing for all accounts"", the server will log events for all NTLM authentication requests that would be blocked when the ""Network Security: Restrict NTLM: Incoming NTLM traffic"" policy setting is set to the ""Deny all accounts"" option.
+
+This policy is supported on at least Windows 7 or Windows Server 2008 R2.
+
+Note: Audit events are recorded on this computer in the ""NTLMBlock"" Log located under the Applications and Services Log/Microsoft/Windows/Security-NTLM.",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Network security: Restrict NTLM:  NTLM authentication in this domain,"At least Windows 7, Windows Server 2008 R2",MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters\RestrictNTLMInDomain,"Network security: Restrict NTLM:  NTLM authentication in this domain
+
+This policy setting allows you to deny or allow NTLM authentication within a domain from this domain controller. This policy does not affect interactive logon to this domain controller.
+
+If you select ""Disabled"" or do not configure this policy setting, the domain controller will allow all NTLM pass-through authentication requests within the domain.
+
+If you select ""Deny for domain accounts to domain servers"" the domain controller will deny all NTLM authentication logon attempts to all servers in the domain that are using domain accounts and return an NTLM blocked error unless the server name is on the exception list in the ""Network security: Restrict NTLM: Add server exceptions for NTLM authentication in this domain"" policy setting.
+
+If you select ""Deny for domain account"" the domain controller will deny all NTLM authentication logon attempts from domain accounts and return an NTLM blocked error unless the server name is on the exception list in the ""Network security: Restrict NTLM:  Add server exceptions for NTLM authentication in this domain"" policy setting.
+
+If you select ""Deny for domain servers"" the domain controller will deny NTLM authentication requests to all servers in the domain and return an NTLM blocked error unless the server name is on the exception list in the ""Network security: Restrict NTLM: Add server exceptions for NTLM authentication in this domain"" policy setting.
+
+If you select ""Deny all,"" the domain controller will deny all NTLM pass-through authentication requests from its servers and for its accounts and return an NTLM blocked error unless the server name is on the exception list in the ""Network security: Restrict NTLM: Add server exceptions for NTLM authentication in this domain"" policy setting.
+
+This policy is supported on at least Windows Server 2008 R2.
+
+Note: Block events are recorded on this computer in the ""NTLMBlock"" Log located under the Applications and Services Log/Microsoft/Windows/Security-NTLM.",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Network security: Restrict NTLM: Audit NTLM authentication in this domain,"At least Windows 7, Windows Server 2008 R2",MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters\AuditNTLMInDomain,"Network security: Restrict NTLM: Audit NTLM authentication in this domain
+
+This policy setting allows you to audit NTLM authentication in a domain from this domain controller.
+
+If you select ""Disable"" or do not configure this policy setting, the domain controller will not log events for NTLM authentication in this domain.
+
+If you select ""Enable for domain accounts to domain servers,"" the domain controller will log events for NTLM authentication logon attempts for domain accounts to domain servers when NTLM authentication would be denied because ""Deny for domain accounts to domain servers"" is selected in the ""Network security: Restrict NTLM: NTLM authentication in this domain"" policy setting.
+
+If you select ""Enable for domain accounts,"" the domain controller will log events for NTLM authentication logon attempts that use domain accounts when NTLM authentication would be denied because ""Deny for domain accounts"" is selected in the ""Network security: Restrict NTLM: NTLM authentication in this domain"" policy setting.
+
+If you select ""Enable for domain servers"" the domain controller will log events for NTLM authentication requests to all servers in the domain when NTLM authentication would be denied because ""Deny for domain servers"" is selected in the ""Network security: Restrict NTLM: NTLM authentication in this domain"" policy setting.
+
+If you select ""Enable all"" the domain controller will log events for NTLM pass-through authentication requests from its servers and for its accounts which would be denied because ""Deny all"" is selected in the ""Network security: Restrict NTLM: NTLM authentication in this domain"" policy setting.
+
+This policy is supported on at least Windows Server 2008 R2.
+
+Note: Audit events are recorded on this computer in the ""NTLMBlock"" Log located under the Applications and Services Log/Microsoft/Windows/Security-NTLM.",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Network security: Restrict NTLM: Add remote server exceptions for NTLM authentication,"At least Windows 7, Windows Server 2008 R2",MACHINE\System\CurrentControlSet\Control\Lsa\MSV1_0\ClientAllowedNTLMServers,"Network security: Restrict NTLM: Add remote server exceptions for NTLM authentication
+
+This policy setting allows you to create an exception list of remote servers to which clients are allowed to use NTLM authentication if the  ""Network Security: Restrict NTLM: Outgoing NTLM traffic to remote servers"" policy setting is configured.
+
+If you configure this policy setting, you can define a list of remote servers to which clients are allowed to use NTLM authentication.
+
+If you do not configure this policy setting, no exceptions will be applied.
+
+The naming format for servers on this exception list is the fully qualified domain name (FQDN) or NetBIOS server name used by the application, listed one per line. To ensure exceptions the name used by all applications needs to be in the list, and to ensure an exception is accurate, the server name should be listed in both naming formats. A single asterisk (*) can be used anywhere in the string as a wildcard character.",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Network security: Restrict NTLM: Add server exceptions in this domain,"At least Windows 7, Windows Server 2008 R2",MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters\DCAllowedNTLMServers,"Network security: Restrict NTLM: Add server exceptions in this domain
+
+This policy setting allows you to create an exception list of servers in this domain to which clients are allowed to use NTLM pass-through authentication if the ""Network Security: Restrict NTLM: Deny NTLM authentication in this domain"" is set.
+
+If you configure this policy setting, you can define a list of servers in this domain to which clients are allowed to use NTLM authentication.
+
+If you do not configure this policy setting, no exceptions will be applied.
+
+The naming format for servers on this exception list is the fully qualified domain name (FQDN) or NetBIOS server name used by the calling application listed one per line. A single asterisk (*) can be used at the beginning or end of the string as a wildcard character.",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Network security: Allow LocalSystem NULL session fallback,"At least Windows 7, Windows Server 2008 R2",MACHINE\System\CurrentControlSet\Control\Lsa\MSV1_0\allownullsessionfallback,"Network security: Allow LocalSystem NULL session fallback
+
+Allow NTLM to fall back to NULL session when used with LocalSystem.
+
+The default is TRUE up to Windows Vista and FALSE in Windows 7.",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Network security: Allow Local System to use computer identity for NTLM,"At least Windows 7, Windows Server 2008 R2",MACHINE\System\CurrentControlSet\Control\Lsa\UseMachineId,"Network security: Allow Local System to use computer identity for NTLM
+
+This policy setting allows Local System services that use Negotiate to use the computer identity when reverting to NTLM authentication.
+
+If you enable this policy setting, services running as Local System that use Negotiate will use the computer identity. This might cause some authentication requests between Windows operating systems to fail and log an error.
+
+If you do not configure this policy setting, services running as Local System that use Negotiate when reverting to NTLM authentication will authenticate anonymously. This was the behavior in previous versions of Windows.
+
+This policy is supported on at least Windows 7 or Windows Server 2008 R2.",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Network security: Allow PKU2U authentication requests to this computer to use online identities.,"At least Windows 7, Windows Server 2008 R2",MACHINE\System\CurrentControlSet\Control\Lsa\pku2u\AllowOnlineID,"Network security: Allow PKU2U authentication requests to this computer to use online identities.
+
+This policy will be turned off by default on domain joined machines. This would disallow the online identities to be able to authenticate to the domain joined machine in Windows 7.",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Network security: Configure encryption types allowed for Kerberos,"At least Windows 7, Windows Server 2008 R2",MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\Parameters\SupportedEncryptionTypes,"Network security: Configure encryption types allowed for Kerberos
+
+This policy setting allows you to set the encryption types that Kerberos is allowed to use.
+
+If not selected, the encryption type will not be allowed. This setting may affect compatibility with client computers or services and applications. Multiple selections are permitted.
+
+This policy is supported on at least Windows 7 or Windows Server 2008 R2.",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Recovery console: Allow automatic administrative logon ,"At least Windows XP SP2, Windows Server 2003",MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Setup\RecoveryConsole\SecurityLevel,"Recovery console: Allow automatic administrative logon
+
+This security setting determines if the password for the Administrator account must be given before access to the system is granted. If this option is enabled, the Recovery Console does not require you to provide a password, and it automatically logs on to the system.
+
+Default: This policy is not defined and automatic administrative logon is not allowed.
+
+",No,Require restart of recovery console
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Recovery console: Allow floppy copy and access to all drives and all folders,"At least Windows XP SP2, Windows Server 2003",MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Setup\RecoveryConsole\SetCommand,"Recovery console: Allow floppy copy and access to all drives and all folders
+
+Enabling this security option makes the Recovery Console SET command available, which allows you to set the following Recovery Console environment variables:
+
+AllowWildCards: Enable wildcard support for some commands (such as the DEL command).
+AllowAllPaths: Allow access to all files and folders on the computer.
+AllowRemovableMedia: Allow files to be copied to removable media, such as a floppy disk.
+NoCopyPrompt: Do not prompt when overwriting an existing file.
+
+Default: This policy is not defined and the recover console SET command is not available.
+
+",No,Require restart of recovery console
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Shutdown: Allow system to be shut down without having to log on,"At least Windows XP SP2, Windows Server 2003",MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System\ShutdownWithoutLogon,"Shutdown: Allow system to be shut down without having to log on
+
+This security setting determines whether a computer can be shut down without having to log on to Windows.
+
+When this policy is enabled, the Shut Down command is available on the Windows logon screen.
+
+When this policy is disabled, the option to shut down the computer does not appear on the Windows logon screen. In this case, users must be able to log on to the computer successfully and have the Shut down the system user right before they can perform a system shutdown.
+
+Default on workstations: Enabled.
+Default on servers: Disabled.
+
+",No,Requires logoff
+,Computer Configuration\Windows Settings\Local Policies\Security Options,Shutdown: Clear virtual memory pagefile,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Control\Session Manager\Memory Management\ClearPageFileAtShutdown,"Shutdown: Clear virtual memory pagefile
+
+This security setting determines whether the virtual memory pagefile is cleared when the system is shut down.
+
+Virtual memory support uses a system pagefile to swap pages of memory to disk when they are not used. On a running system, this pagefile is opened exclusively by the operating system, and it is well protected. However, systems that are configured to allow booting to other operating systems might have to make sure that the system pagefile is wiped clean when this system shuts down. This ensures that sensitive information from process memory that might go into the pagefile is not available to an unauthorized user who manages to directly access the pagefile.
+
+When this policy is enabled, it causes the system pagefile to be cleared upon clean shutdown. If you enable this security option, the hibernation file (hiberfil.sys) is also zeroed out when hibernation is disabled.
+
+Default: Disabled.
+
+",Yes,Vista does NOT require reboot
+,Computer Configuration\Windows Settings\Local Policies\Security Options,"System cryptography: Use FIPS compliant algorithms for encryption, hashing, and signing","At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy,"System cryptography: Use FIPS 140 compliant cryptographic algorithms, including encryption, hashing and signing algorithms
+
+For the Schannel Security Service Provider (SSP), this security setting disables the weaker Secure Sockets Layer (SSL) protocols and supports only the Transport Layer Security (TLS) protocols as a client and as a server (if applicable). If this setting is enabled, Transport Layer Security/Secure Sockets Layer (TLS/SSL) Security Provider uses only the FIPS 140 approved cryptographic algorithms: 3DES and AES for encryption, RSA or ECC public key cryptography for the TLS key exchange and authentication, and only the Secure Hashing Algorithm (SHA1, SHA256, SHA384, and SHA512) for the TLS hashing requirements.
+
+For Encrypting File System Service (EFS), it supports the Triple Data Encryption Standard (DES) and Advanced Encryption Standard (AES) encryption algorithms for encrypting file data supported by the NTFS file system. By default, EFS uses the Advanced Encryption Standard (AES) algorithm with a 256-bit key in the Windows Server 2003 and Windows Vista family and DESX algorithm in Windows XP for encrypting file data. For information about EFS, see Encrypting File System.
+
+For Remote Desktop Services, it supports only the Triple DES encryption algorithm for encrypting Remote Desktop Services network communication. 
+
+Note: Remote Desktop Services was called Terminal Services in previous versions of Windows Server.
+
+For BitLocker, this policy needs to be enabled before any encryption key is generated. Please note that when this policy is enabled, BitLocker will prevent the creation or use of recovery passwords; recovery keys should be used instead.
+
+Default: Disabled.
+
+Note: The Federal Information Processing Standard (FIPS) 140 is a security implementation designed for certifying cryptographic software. FIPS 140 validated software is required by the U.S. Government and requested by other prominent institutions.",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,System cryptography: Force strong key protection for user keys stored on the computer,"At least Windows XP SP2, Windows Server 2003",MACHINE\Software\Policies\Microsoft\Cryptography\ForceKeyProtection,"System Cryptography: Force strong key protection for user keys stored on the computer
+
+This security setting determines if users' private keys require a password to be used.
+
+The options are:
+
+User input is not required when new keys are stored and used
+User is prompted when the key is first used
+User must enter a password each time they use a key
+For more information, see Public key infrastructure.
+
+Default: This policy is not defined.
+
+",Yes,"Requires reboot with CNG on Vista; Does not require reboot with CAPI on Vista; Does not require reboot on XP, 2003 with CAPI"
+,Computer Configuration\Windows Settings\Local Policies\Security Options,System objects: Default owner for objects created by members of the Administrators group,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Control\Lsa\NoDefaultAdminOwner,"System objects: Default owner for objects created by members of the Administrators group
+Description
+This security setting determines which security principal (SID) will be assigned the OWNER of objects when the object is created by a member of the Administrators Group.  
+Default:
+Windows XP: User SID
+Windows 2003 :  Administrators Group",No,This policy does not exist on Vista
+,Computer Configuration\Windows Settings\Local Policies\Security Options,System objects: Require case insensitivity for non-Windows subsystems,"At least Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Control\Session Manager\Kernel\ObCaseInsensitive,"System objects: Require case insensitivity for non-Windows subsystems
+
+This security setting determines whether case insensitivity is enforced for all subsystems. The Win32 subsystem is case insensitive. However, the kernel supports case sensitivity for other subsystems, such as POSIX.
+
+If this setting is enabled, case insensitivity is enforced for all directory objects, symbolic links, and IO objects, including file objects. Disabling this setting does not allow the Win32 subsystem to become case sensitive.
+
+Default: Enabled.
+
+",Yes,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,"System objects: Strengthen default permissions of internal system objects (e.g., Symbolic Links) ","Windows XP SP2, Windows Server 2003",MACHINE\System\CurrentControlSet\Control\Session Manager\ProtectionMode,"System objects: Strengthen default permissions of internal system objects (e.g., Symbolic Links)
+
+This security setting determines the strength of the default discretionary access control list (DACL) for objects.
+
+Active Directory maintains a global list of shared system resources, such as DOS device names, mutexes, and semaphores. In this way, objects can be located and shared among processes. Each type of object is created with a default DACL that specifies who can access the objects and what permissions are granted.
+
+If this policy is enabled, the default DACL is stronger, allowing users who are not administrators to read shared objects but not allowing these users to modify shared objects that they did not create.
+
+Default: Enabled.
+
+",Yes,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,System settings: Optional subsystems,"At least Windows Vista, Windows Server 2003",MACHINE\System\CurrentControlSet\Control\Session Manager\SubSystems\optional,"System settings: Optional subsystems
+
+This security setting determines which subsystems can optionally be started up to support your applications. With this security setting, you can specify as many subsystems to support your applications as your environment demands.
+
+Default: POSIX.
+
+",Yes,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,System settings: Use Certificate Rules on Windows Executables for Software Restriction Policies,"At least Windows Vista, Windows Server 2003",MACHINE\Software\Policies\Microsoft\Windows\Safer\CodeIdentifiers\AuthenticodeEnabled,"System settings: Use Certificate Rules on Windows Executables for Software Restriction Policies
+
+This security setting determines if digital certificates are processed when a user or process attempts to run software with an .exe file name extension. This security settings is used to enable or disable certificate rules, a type of software restriction policies rule. With software restriction policies, you can create a certificate rule that will allow or disallow software that is signed by Authenticode to run, based on the digital certificate that is associated with the software. In order for certificate rules to take effect, you must enable this security setting.
+
+When certificate rules are enabled, software restriction policies will check a certificate revocation list (CRL) to make sure the software's certificate and signature are valid. This may decrease performance when start signed programs. You can disable this feature. On Trusted Publishers Properties, clear the Publisher and Timestamp check boxes. For more information, see Set trusted publisher options.
+
+Default: Disabled.
+
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,User Account Control: Admin Approval Mode for the Built-in Administrator account,"At least Windows Vista, Windows Server 2008",SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\FilterAdministratorToken,"User Account Control: Admin Approval Mode for the Built-in Administrator account
+
+This security setting determines the behavior of Admin Approval mode for the Built-in Administrator account.
+
+The options are:
+
+¨° Enabled: The Built-in Administrator will logon in Admin Approval Mode.  By default any operation that requires elevation of privilege will prompt the Consent Admin to choose either Permit or Deny.
+
+¨° Disabled: The Built-in Administrator will logon in XP compatible mode and run all applications by default with full administrative privilege.
+
+Default: Disabled
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,User Account Control: Behavior of the elevation prompt for administrators in Admin Approval Mode,"At least Windows Vista, Windows Server 2008",SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\ConsentPromptBehaviorAdmin,"User Account Control: Behavior of the elevation prompt for administrators in Admin Approval Mode
+
+This security setting determines the behavior of the elevation prompt for administrators
+
+The options are:
+
+¨° Prompt f",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,User Account Control: Behavior of the elevation prompt for standard users,"At least Windows Vista, Windows Server 2008",SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\ConsentPromptBehaviorUser,"User Account Control: Behavior of the elevation prompt for standard users
+This security setting determines the behavior of the elevation prompt for standard users
+
+The options are:
+
+¨° Prompt for credentials: An operation that requires elevation of privilege will prompt the user to enter an administrative user name and password. If the user enters valid credentials the operation will continue with the applicable privilege.
+
+¨° Automatically deny elevation requests: This option results in an access denied error message being returned to the standard user when they try to perform an operation that requires elevation of privilege.  Most enterprises running desktops as standard user will configure this policy to reduce help desk calls.
+
+Default: Prompt for credentials (home) / Automatically deny elevation requests (enterprise)
+
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,User Account Control: Detect application installations and prompt for elevation,"At least Windows Vista, Windows Server 2008",SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\EnableInstallerDetection,"User Account Control: Detect application installations and prompt for elevation
+
+This security setting determines the behavior of application installation detection for the entire system.
+
+The options are:
+
+¨° Enabled: Application installation packages that require an elevation of privilege to install will be heuristically detected and trigger the configured elevation prompt UX.
+
+¨° Disabled: Enterprises running standard users desktops that leverage delegated installation technologies like Group Policy Software Install (GPSI) or SMS will disable this feature. In this case, installer detection is unnecessary and thus not required.
+
+Default: Enabled (home) / Disabled (enterprise)
+
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,User Account Control: Only elevate executables that are signed and validated,"At least Windows Vista, Windows Server 2008",SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\ValidateAdminCodeSignatures,"User Account Control: Only elevate executables that are signed and validated
+
+This security setting will enforce PKI signature checks on any interactive application that requests elevation of privilege. Enterprise administrators can control the admin application allowed list thru the population of certificates in the local computers Trusted Publisher Store.
+
+The options are:
+
+¨° Enabled: Enforces the PKI certificate chain validation of a given executable before it is permitted to run.
+
+¨° Disabled: Does not enforce PKI certificate chain validation before a given executable is permitted to run.
+
+Default: Disabled
+
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,User Account Control: Only elevate UIAccess applications that are installed in secure locations,"At least Windows Vista, Windows Server 2008",SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\EnableSecureUIAPaths,"User Account Control: Only elevate UIAccess applications that are installed in secure locations
+
+This security setting will enforce the requirement that applications that request execution with a UIAccess integrity level (via a marking of UIAccess=true in their application manifest), must reside in a secure location on the file system.  Secure locations are limited to the following directories:
+
+- ",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,User Account Control: Run all administrators in Admin Approval Mode,"At least Windows Vista, Windows Server 2008",SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\EnableLUA,"User Account Control: Run all users, including administrators, as standard users.
+
+This security setting determines the behavior of all UAC policies for the entire system.
+
+The options are:
+
+¨° Enabled: Admin Approval Mode and all other UAC policies are dependent on this option being enabled.  Changing this setting requires a system reboot.
+
+¨° Disabled: Admin Approval Mode user type and all related UAC policies will be disabled.  Note: the Security Center will notify that the overall security of the operating system has been reduced.
+
+Default: Enabled
+
+",Yes,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,User Account Control: Switch to the secure desktop when prompting for elevation,"At least Windows Vista, Windows Server 2008",SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\PromptOnSecureDesktop,"User Account Control: Switch to the secure desktop when prompting for elevation
+
+This security setting determines whether the elevation request will prompt on the interactive users desktop or the Secure Desktop.
+
+The options are:
+
+¨° Enabled: All elevation requests by default will go to the secure desktop
+
+¨° Disabled: All elevation requests will go to the interactive users desktop
+
+Default: Enabled
+
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,User Account Control: Virtualize file and registry write failures to per-user locations,"At least Windows Vista, Windows Server 2008",SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\EnableVirtualization,"User Account Control: Virtualizes file and registry write failures to per-user locations
+
+This security setting enables the redirection of legacy application write failures to defined locations in both the registry and file system.  This feature mitigates those applications that historically ran as administrator and wrote runtime application data back to either %ProgramFiles%, %Windir%; %Windir%\system32 or HKLM\Software\....
+
+Virtualization facilitates the running of pre-Vista (legacy) applications that historically failed to run as Standard User.  An administrator running only Windows Vista compliant applications may choose to disable this feature as it is unnecessary.
+
+The options are:
+
+¨° Enabled: Facilitates the runtime redirection of application write failures to defined user locations for both the file system and registry.
+
+¨° Disabled: Applications that write data to protected locations will simply fail as they did in previous versions of Windows.
+
+Default : Enabled
+
+",No,
+,Computer Configuration\Windows Settings\Local Policies\Security Options,User Account Control: Allow UIAccess applications to prompt for elevation without using the secure desktop.,"At least Windows Vista, Windows Server 2008",SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\EnableUIADesktopToggle,"User Account Control: Allow UIAccess applications to prompt for elevation without using the secure desktop.
+
+This security setting controls whether User Interface Accessibility (UIAccess or UIA) programs can automatically disable the secure desktop for elevation prompts being used by a standard user.
+
+If you enable this setting, UIA programs including Windows Remote Assistance can automatically disable the secure desktop for elevation prompts. Unless you have also disabled elevation prompts, the prompts will appear on the interactive user's desktop instead of the secure desktop.
+
+If you disable or do not configure this setting, the secure desktop can only be disabled by the user of the interactive desktop or by disabling the ""User Account Control: Switch to the secure desktop when prompting for elevation"" setting.
+
+UIA programs are designed to interact with Windows and application programs on behalf of a user. This setting allows UIA programs to bypass the secure desktop to increase usability in certain cases, but allowing elevation requests to appear on the regular interactive desktop instead of the secure desktop increases your security risk.
+
+Since UIA programs must be able to respond to prompts regarding security issues, such as the UAC elevation prompt, UIA programs must be highly trusted. In order to be considered trusted, a UIA program must be digitally signed. By default, UIA programs can be run only from the following protected paths:
+                ..\Program Files\ (and subfolders)
+                ..\Program Files (x86)\ (and subfolders, in 64-bit versions of Windows only)
+..\Windows\System32\
+
+The requirement to be in a protected path can be disabled by the ""User Account Control: Only elevate UIAccess applications that are installed in secure locations"" setting.
+
+While this setting applies to any UIA program, it will be used primarily in certain Windows Remote Assistance scenarios. The Windows Remote Assistance program in Windows Vista is a UIA program.
+
+If a user requests remote assistance from an administrator and the remote assistance session is established, any elevation prompts appear on the interactive user's secure desktop and the administrator's remote session is paused. To avoid pausing the remote administrator¡¯s session during elevation requests, ,the user may select the ""llow IT Expert to respond to User Account Control prompts"" check box when setting up the remote assistance session. However, selecting this check box itself requires  that the interactive user respond to an elevation prompt on the secure desktop. If the interactive user is a standard user, the user does not have the required credentials to allow elevation.
+
+If you enable this setting, (""User Account Control: Allow UIAccess applications to prompt for elevation without using the secure desktop¡±), , requests for elevation are automatically sent to the interactive desktop (not the secure desktop) and also appear on the remote administrator's view of the desktop during a Windows Remote Assistance session, and the remote administrator is able to provide the appropriate credentials for elevation.
+
+This setting does not change the behavior of the UAC elevation prompt for administrators.
+
+If you plan to enable this setting, you should also review the effect of the ""ser Account Control: Behavior of the elevation prompt for standard users"" setting. If it is configured as ""Automatically deny elevation requests"" elevation requests will not be presented to the user..B",No,
+,Computer Configuration\Windows Settings\Security Settings\Event Log,Maximum application log size,"Only Windows XP SP2, Windows Server 2003",Event Log security settings are not registry keys.,"Maximum application log size
+
+This security setting specifies the maximum size of the application event log, which has a  theoretical maximum of 4 GB.  Practically the limit is lower (~300MB). 
+
+Notes
+
+Log file sizes must be a multiple of 64 KB. If you enter a value that is not a multiple of 64 KB, Event Viewer will round he log file size up to a multiple of 64 KB.
+This setting does not appear in the Local Computer Policy object.
+Event Log size and log wrapping should be defined to match the business and security requirements you determined when designing your enterprise security plan. Consider implementing these Event Log settings at the site, domain, or organizational unit level, to take advantage of Group Policy settings.
+Default: For the Windows Server 2003 family, 16 MB; for Windows XP Professional Service Pack 1, 8 MB; for Windows XP Professional, 512 KB.
+
+",No,Note: This setting does not appear in the Local Computer Policy object. 
+,Computer Configuration\Windows Settings\Security Settings\Event Log,Maximum security log size,"Only Windows XP SP2, Windows Server 2003",Event Log security settings are not registry keys.,"Maximum security log size
+
+This security setting specifies the maximum size of the security event log, which has a  theoretical maximum of 4 GB.  Practically the limit is lower (~300MB). 
+
+Notes
+
+Log file sizes must be a multiple of 64 KB. If you enter a value that is not a multiple of 64 KB, Event Viewer will round he log file size up to a multiple of 64 KB.
+This setting does not appear in the Local Computer Policy object. 
+Event Log size and log wrapping should be defined to match the business and security requirements you determined when designing your enterprise security plan. Consider implementing these Event Log settings at the site, domain, or organizational unit level, to take advantage of Group Policy settings.
+Default: For the Windows Server 2003 family, 16 MB; for Windows XP Professional Service Pack 1, 8 MB; for Windows XP Professional, 512 KB.
+
+",No,"Note: This setting does not appear in the Local Computer Policy object. 
+Important: Modifying this setting may affect compatibility with clients, services, and applications. For compatibility information about this setting, see the ""Event Log: Maximum sec"
+,Computer Configuration\Windows Settings\Security Settings\Event Log,Maximum system log size,"Only Windows XP SP2, Windows Server 2003",Event Log security settings are not registry keys.,"Maximum system log size
+
+This security setting specifies the maximum size of the system event log, which has a  theoretical maximum of 4 GB.  Practically the limit is lower (~300MB). 
+
+Notes
+
+Log file sizes must be a multiple of 64 KB. If you enter a value that is not a multiple of 64 KB, Event Viewer will round he log file size up to a multiple of 64 KB.
+This setting does not appear in the Local Computer Policy object. 
+Event Log size and log wrapping should be defined to match the business and security requirements you determined when designing your enterprise security plan. Consider implementing these Event Log settings at the site, domain, or organizational unit level, to take advantage of Group Policy settings.
+Default: For the Windows Server 2003 family, 16 MB; for Windows XP Professional Service Pack 1, 8 MB; for Windows XP Professional, 512 KB.
+
+",No,Note: This setting does not appear in the Local Computer Policy object. 
+,Computer Configuration\Windows Settings\Security Settings\Event Log,Prevent local guests group from accessing application log,"Only Windows XP SP2, Windows Server 2003",Event Log security settings are not registry keys.,"Prevent local guests group and ANONYMOUS LOGIN users from accessing application log
+
+This security setting determines if guests are prevented from accessing the application event log.
+
+Notes
+
+This setting does not appear in the Local Computer Policy object.
+
+This security setting affects only computers running Windows 2000 and Windows XP.
+
+Default: Enabled for Windows XP, Disabled for Windows 2000",No,"Notes: This setting does not appear in the Local Computer Policy object.
+This security setting affects only computers running Windows 2000, Windows Server 2003, and Windows XP."
+,Computer Configuration\Windows Settings\Security Settings\Event Log,Prevent local guests group from accessing security log,"Only Windows XP SP2, Windows Server 2003",Event Log security settings are not registry keys.,"Prevent local guests group and ANONYMOUS LOGIN users from accessing security log
+
+This security setting determines if guests are prevented from accessing the application event log.
+
+Notes
+
+This setting does not appear in the Local Computer Policy object.
+
+This security setting affects only computers running Windows 2000 and Windows XP.
+
+Default: Enabled for Windows XP, Disabled for Windows 2000
+",No,"Notes: This setting does not appear in the Local Computer Policy object. 
+This security setting affects only computers running Windows 2000, Windows Server 2003, and Windows XP. 
+A user must possess the Manage auditing and security log user right to acces"
+,Computer Configuration\Windows Settings\Security Settings\Event Log,Prevent local guests group from accessing system log,"Only Windows XP SP2, Windows Server 2003",Event Log security settings are not registry keys.,"Prevent local guests group and ANONYMOUS LOGIN users from accessing system log
+
+This security setting determines if guests are prevented from accessing the application event log.
+
+Notes
+
+This setting does not appear in the Local Computer Policy object.
+
+This security setting affects only computers running Windows 2000 and Windows XP.
+
+Default: Enabled for Windows XP, Disabled for Windows 2000
+",No,"Note: This setting does not appear in the Local Computer Policy object.                                           
+This security setting affects only computers running Windows 2000, Windows Server 2003, and Windows XP."
+,Computer Configuration\Windows Settings\Security Settings\Event Log,Retain application log,"Only Windows XP SP2, Windows Server 2003",Event Log security settings are not registry keys.,"Retain application log
+
+This security setting determines the number of days' worth of events to be retained for the application log if the retention method for the application log is By Days.
+
+Set this value only if you archive the log at scheduled intervals and you make sure that the Maximum application log size is large enough to accommodate the interval.
+
+Note: This setting does not appear in the Local Computer Policy object.
+ Default: None.
+
+",No,"Notes: This setting does not appear in the Local Computer Policy object. 
+A user must possess the Manage auditing and security log user right to access the security log. "
+,Computer Configuration\Windows Settings\Security Settings\Event Log,Retain security log,"Only Windows XP SP2, Windows Server 2003",Event Log security settings are not registry keys.,"Retain security log
+
+This security setting determines the number of days' worth of events to be retained for the security log if the retention method for the security log is By Days.
+
+Set this value only if you archive the log at scheduled intervals and you make sure that the Maximum security log size is large enough to accommodate the interval.
+
+Notes
+This setting does not appear in the Local Computer Policy object.
+A user must possess the Manage auditing and security log user right to access the security log.
+Default: None.
+
+",No,Notes: This setting does not appear in the Local Computer Policy object. 
+,Computer Configuration\Windows Settings\Security Settings\Event Log,Retain system log,"Only Windows XP SP2, Windows Server 2003",Event Log security settings are not registry keys.,"Retain system log
+
+This security setting determines the number of days' worth of events to be retained for the system log if the retention method for the system log is By Days.
+
+Set this value only if you archive the log at scheduled intervals and you make sure that the Maximum system log size is large enough to accommodate the interval.
+
+Note: This setting does not appear in the Local Computer Policy object.
+Default: None.
+
+",No,Note: This setting does not appear in the Local Computer Policy object. 
+,Computer Configuration\Windows Settings\Security Settings\Event Log,Retention method for application log,"Only Windows XP SP2, Windows Server 2003",Event Log security settings are not registry keys.,"Retention method for application log
+
+This security setting determines the ""wrapping"" method for the application log.
+
+If you do not archive the application log, in the Properties dialog box for this policy, select the Define this policy setting check box, and then click Overwrite events as needed.
+
+If you archive the log at scheduled intervals, in the Properties dialog box for this policy, select the Define this policy setting check box, and then click Overwrite events by days and specify the appropriate number of days in the Retain application log setting. Make sure that the Maximum application log size is large enough to accommodate the interval.
+
+If you must retain all the events in the log, in the Properties dialog box for this policy, select the Define this policy setting check box, and then click Do not overwrite events (clear log manually). This option requires that the log be cleared manually. In this case, when the maximum log size is reached, new events are discarded.
+
+Note: This setting does not appear in the Local Computer Policy object.
+
+Default: None.
+
+",No,Note: This setting does not appear in the Local Computer Policy object. 
+,Computer Configuration\Windows Settings\Security Settings\Event Log,Retention method for security log,"Only Windows XP SP2, Windows Server 2003",Event Log security settings are not registry keys.,"Retention method for security log
+
+This security setting determines the ""wrapping"" method for the security log.
+
+If you do not archive the security log, in the Properties dialog box for this policy, select the Define this policy setting check box, and then click Overwrite events as needed.
+
+If you archive the log at scheduled intervals, in the Properties dialog box for this policy, select the Define this policy setting check box, and then click Overwrite events by days and specify the appropriate number of days in the retain security log setting. Make sure that the Maximum security log size is large enough to accommodate the interval.
+
+If you must retain all the events in the log, in the Properties dialog box for this policy, select the Define this policy setting check box, and then click Do not overwrite events (clear log manually). This option requires that the log be cleared manually. In this case, when the maximum log size is reached, new events are discarded.
+
+Notes
+
+This setting does not appear in the Local Computer Policy object.
+
+A user must possess the Manage auditing and security log user right to access the security log.
+
+Default: None.",No,Note: This setting does not appear in the Local Computer Policy object. 
+,Computer Configuration\Windows Settings\Security Settings\Event Log,Retention method for system log,"Only Windows XP SP2, Windows Server 2003",Event Log security settings are not registry keys.,"Retention method for system log
+
+This security setting determines the ""wrapping"" method for the system log.
+
+If you do not archive the system log, in the Properties dialog box for this policy, select the Define this policy setting check box, and then click Overwrite events as needed.
+
+If you archive the log at scheduled intervals, in the Properties dialog box for this policy, select the Define this policy setting check box, and then click Overwrite events by days and specify the appropriate number of days in the Retain system log setting. Make sure that the Maximum system log size is large enough to accommodate the interval
+
+.If you must retain all the events in the log, in the Properties dialog box for this policy, select the Define this policy setting check box, and then click Do not overwrite events (clear log manually). This option requires that the log be cleared manually. In this case, when the maximum log size is reached, new events are discarded
+
+Note: This setting does not appear in the Local Computer Policy object.
+
+Default: None.",No,Note: This setting does not appear in the Local Computer Policy object. 
+,Computer Configuration\Windows Settings\Security Settings\Restricted Groups,Restricted Groups,"Only Windows XP SP2, Windows Server 2003",Restricted Groups policy settings are not registry keys.,"Restricted Groups
+
+This security setting allows an administrator to define two properties for security-sensitive groups (""restricted"" groups).
+
+The two properties are Members and Member Of. The Members list defines who belongs and who does not belong to the restricted group. The Member Of list specifies which other groups the restricted group belongs to.
+
+When a Restricted Groups Policy is enforced, any current member of a restricted group that is not on the Members list is removed. Any user on the Members list who is not currently a member of the restricted group is added.
+
+You can use Restricted Groups policy to control group membership. Using the policy, you can specify what members are part of a group. Any members that are not specified in the policy are removed during configuration or refresh. In addition, the reverse membership configuration option ensures that each Restricted Group is a member of only those groups that are specified in the Member Of column.
+
+For example, you can create a Restricted Groups policy to only allow specified users (for example, Alice and John) to be members of the Administrators group. When policy is refreshed, only Alice and John will remain as members of the Administrators group.
+
+There are two ways to apply Restricted Groups policy:
+
+Define the policy in a security template, which will be applied during configuration on your local computer.
+Define the setting on a Group Policy object (GPO) directly, which means that the policy goes into effect with every refresh of policy. The security settings are refreshed every 90 minutes on a workstation or server and every 5 minutes on a domain controller. The settings are also refreshed every 16 hours, whether or not there are any changes.
+Default: None specified.
+
+Caution
+
+If a Restricted Groups policy is defined and Group Policy is refreshed, any current member not on the Restricted Groups policy members list is removed. This can include default members, such as administrators.
+
+Notes
+
+Restricted Groups should be used primarily to configure membership of local groups on workstation or member servers.
+An empty Members list means that the restricted group has no members; an empty Member Of list means that the groups to which the restricted group belongs are not specified.
+
+",,
+,Computer Configuration\Windows Settings\Security Settings\System Services,System Services,"Only Windows XP SP2, Windows Server 2003",System Services policy settings are not registry keys.,"System Services security settings
+
+Allows an administrator to define the startup mode (manual, automatic, or disabled) as well as the access permissions (Start, Stop, or Pause) for all system services.
+
+Default: Undefined.
+
+Notes
+
+This setting does not appear in the Local Computer Policy object.
+If you choose to set system service startup to Automatic, perform adequate testing to verify that the services can start without user intervention.
+For performance optimization, set unnecessary or unused services to Manual.
+
+",,Note: This setting does not appear in the Local Computer Policy object.
+,Computer Configuration\Windows Settings\Security Settings\Registry,Registry,"Only Windows XP SP2, Windows Server 2003",not a registry key,"Registry security settings
+
+Allows an administrator to define access permissions (on discretionary access control lists (DACLs)) and audit settings (on system access control lists (SACLs)) for registry keys using Security Configuration Manager.
+
+Default: Undefined.
+
+Note: This setting does not appear in the Local Computer Policy object.
+
+",,Note: This setting does not appear in the Local Computer Policy object. 
+,Computer Configuration\Windows Settings\Security Settings\File System,File System,"Only Windows XP SP2, Windows Server 2003",File System policy settings are not registry keys.,"File System security settings
+
+Allows an administrator to define access permissions (on discretionary access control lists (DACLs)) and audit settings (on system access control lists (SACLs)) for file system objects using Security Configuration Manager.
+
+Default: Undefined.
+
+Note: This setting does not appear in the Local Computer Policy object.
+",,Note: This setting does not appear in the Local Computer Policy object. 
